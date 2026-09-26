@@ -1,0 +1,351 @@
+/* ==========================================
+   Voluntell インターンシップNAVI 見た目の設定
+   【スマホ優先】上から順に「スマホ用の設定」を書き、
+   いちばん下の「PC用」で、画面が広いときだけ上書きしています。
+   色を変えたいときは、下の「色の設定」だけ直せばOKです。
+   ========================================== */
+
+/* ---------- 色・大きさの設定 ---------- */
+:root {
+  --blue: #2563eb;        /* メインの青 */
+  --blue-dark: #1d4ed8;   /* 青（濃い） */
+  --blue-light: #eaf2ff;  /* 青（薄い・背景用） */
+  --text: #1f2937;        /* 文字の色 */
+  --text-sub: #6b7280;    /* 補足の文字色 */
+  --border: #e5e7eb;      /* 線の色 */
+  --accent: #dc2626;      /* 締切など目立たせたい文字の色 */
+  --white: #ffffff;
+  --radius: 16px;         /* 角の丸み */
+  --tap: 52px;            /* ボタンの高さ（指で押しやすい大きさ） */
+}
+
+/* ---------- 全体の基本 ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 64px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-tap-highlight-color: rgba(37, 99, 235, 0.15);
+}
+
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+
+.container { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+.container-narrow { max-width: 720px; }
+
+.section { padding: 40px 0; }
+.section-tint { background: var(--blue-light); }
+.section-title { text-align: center; font-size: 22px; line-height: 1.4; margin-bottom: 20px; }
+
+/* ---------- ボタン ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  min-height: var(--tap);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 16px; font-weight: bold;
+  border: 2px solid transparent;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-block { width: 100%; }
+.btn-large { min-height: 60px; font-size: 18px; }
+.btn-primary { background: var(--blue); color: var(--white); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35); }
+.btn-primary:active { background: var(--blue-dark); }
+.btn-outline { border-color: var(--blue); color: var(--blue); background: var(--white); }
+.btn-outline:active { background: var(--blue); color: var(--white); }
+.btn-white { background: var(--white); color: var(--blue); }
+.btn-white:active { background: var(--blue-light); }
+
+/* ---------- 1. ヘッダー ---------- */
+.header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 56px; }
+.site-name { font-weight: bold; font-size: 15px; color: var(--blue); line-height: 1.3; }
+.header-nav { display: flex; align-items: center; gap: 8px; }
+.nav-company {
+  padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px;
+  font-size: 12px; font-weight: bold; color: var(--text-sub); white-space: nowrap;
+}
+.nav-pc { display: none; }  /* スマホでは非表示（PC用で表示） */
+
+/* ---------- 2. ファーストビュー ---------- */
+.hero { background: linear-gradient(160deg, var(--blue-light), var(--white)); padding: 28px 0 32px; }
+.hero h1 { font-size: 27px; line-height: 1.45; color: var(--blue-dark); margin-bottom: 12px; }
+.hero-sub { font-size: 14px; color: var(--text-sub); margin-bottom: 20px; }
+
+/* ビジュアルスペース（スマホでは小さなタグを横に並べる） */
+.hero-visual { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.visual-card {
+  background: var(--white); color: var(--blue-dark);
+  padding: 8px 14px; border-radius: 999px;
+  font-size: 13px; font-weight: bold;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.15);
+}
+
+/* ---------- 3. 募集カード（スマホは1列） ---------- */
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+.job-card {
+  display: flex; flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.job-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.logo {
+  flex-shrink: 0; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px; background: var(--blue-light); color: var(--blue);
+  font-weight: bold; font-size: 18px; overflow: hidden;
+}
+.logo img { width: 100%; height: 100%; object-fit: contain; }
+.company { font-size: 13px; color: var(--text-sub); line-height: 1.4; }
+.job-title { font-size: 18px; line-height: 1.5; margin-bottom: 12px; }
+
+/* 対象（色付きのタグ） */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.tag {
+  padding: 2px 10px; border-radius: 999px;
+  background: var(--blue-light); color: var(--blue-dark);
+  font-size: 13px; font-weight: bold;
+}
+
+/* エリアと現地／オンライン */
+.meta { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; margin-bottom: 10px; }
+
+/* 期間・応募締切 */
+.job-info { font-size: 14px; margin-bottom: 16px; padding-top: 10px; border-top: 1px solid var(--border); flex-grow: 1; }
+.job-info div { display: flex; gap: 12px; padding: 2px 0; }
+.job-info dt { flex-shrink: 0; width: 5.5em; color: var(--text-sub); }
+.deadline { color: var(--accent); font-weight: bold; }
+
+.more { margin-top: 20px; }
+
+/* ---------- 4. 応募までの流れ（スマホは縦に並べる） ---------- */
+.steps { display: grid; gap: 10px; }
+.step {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--white); border-radius: var(--radius); padding: 14px 16px;
+}
+.step-num {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: var(--white); font-weight: bold;
+}
+.step h3 { font-size: 16px; }
+.step p { font-size: 13px; color: var(--text-sub); }
+.free-note { text-align: center; margin-top: 16px; font-weight: bold; font-size: 18px; color: var(--blue-dark); }
+
+/* ---------- 5. 特徴 ---------- */
+.feature-grid { display: grid; gap: 12px; }
+.feature {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; border: 1px solid var(--border); border-radius: var(--radius);
+}
+.feature-icon { flex-shrink: 0; font-size: 30px; line-height: 1.2; }
+.feature h3 { font-size: 16px; margin-bottom: 2px; }
+.feature p { font-size: 13px; color: var(--text-sub); }
+
+/* ---------- 6. よくある質問 ---------- */
+.faq { background: var(--white); border-radius: var(--radius); margin-bottom: 10px; }
+.faq summary {
+  cursor: pointer; font-weight: bold; list-style: none;
+  min-height: var(--tap); display: flex; align-items: center;
+  padding: 10px 44px 10px 16px; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "＋"; position: absolute; right: 16px; color: var(--blue); }
+.faq[open] summary::after { content: "－"; }
+.faq p { padding: 0 16px 16px; color: var(--text-sub); font-size: 15px; }
+
+/* ---------- 7. 企業向け案内 ---------- */
+.company-box {
+  background: var(--blue); color: var(--white);
+  border-radius: 20px; padding: 28px 20px; text-align: center;
+}
+.company-box h2 { font-size: 20px; line-height: 1.5; margin-bottom: 8px; }
+.company-lead { font-size: 14px; margin-bottom: 16px; opacity: 0.95; }
+.company-list { display: inline-block; text-align: left; margin-bottom: 22px; font-size: 15px; }
+.company-list li { padding: 3px 0 3px 26px; position: relative; }
+.company-list li::before { content: "✓"; position: absolute; left: 0; font-weight: bold; }
+
+/* ---------- 8. フッター ---------- */
+.footer { background: #0f172a; color: #cbd5e1; padding: 32px 0 24px; text-align: center; }
+.footer-name { color: var(--white); font-weight: bold; margin-bottom: 8px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 20px; margin-bottom: 12px; font-size: 14px; }
+.footer-nav a { padding: 10px 0; }  /* 押しやすいように上下に余白 */
+.copyright { font-size: 12px; opacity: 0.7; }
+
+/* ==========================================
+   PC用（画面幅が768px以上のときだけ上書き）
+   将来、PC向けサイトへ広げるときはここを育てます
+   ========================================== */
+@media (min-width: 768px) {
+  .container { padding: 0 24px; }
+  .section { padding: 64px 0; }
+  .section-title { font-size: 26px; margin-bottom: 32px; }
+
+  .site-name { font-size: 18px; }
+  .nav-pc { display: block; padding: 8px 12px; font-weight: bold; font-size: 14px; }
+  .nav-company { font-size: 14px; }
+
+  .hero { padding: 64px 0; }
+  .hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; }
+  .hero h1 { font-size: 40px; }
+  .hero-sub { font-size: 16px; margin-bottom: 28px; }
+  .hero .btn-block { width: auto; display: inline-flex; }
+
+  .hero-visual { position: relative; display: block; height: 280px; margin-top: 0; }
+  .hero-visual::before {
+    content: ""; position: absolute; inset: 20px 30px;
+    background: var(--blue); opacity: 0.12; border-radius: 50%;
+  }
+  .visual-card { position: absolute; padding: 14px 20px; border-radius: var(--radius); font-size: 16px; }
+  .visual-card:nth-child(1) { top: 10px; left: 0; }
+  .visual-card:nth-child(2) { top: 110px; right: 0; }
+  .visual-card:nth-child(3) { bottom: 10px; left: 30px; }
+
+  .card-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .more { text-align: center; margin-top: 32px; }
+  .more .btn-block { width: auto; display: inline-flex; }
+
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step { flex-direction: column; text-align: center; padding: 24px 20px; }
+
+  .feature-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .feature { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px; }
+
+  .company-box { padding: 48px 24px; }
+  .company-box h2 { font-size: 26px; }
+  .company-box .btn-block { width: auto; display: inline-flex; }
+}
+
+/* ==========================================
+   募集詳細ページ（detail.html）用の設定
+   ========================================== */
+.detail-page { padding-bottom: 92px; }  /* 下に固定した申込ボタンと重ならないための余白 */
+
+.detail { padding-top: 16px; padding-bottom: 32px; }
+.back-link { display: inline-block; padding: 8px 0; font-size: 14px; color: var(--blue); font-weight: bold; }
+
+.detail-top { margin: 8px 0 8px; }
+.detail-title { font-size: 24px; line-height: 1.45; margin-bottom: 12px; }
+
+.detail-info { margin-top: 4px; background: var(--blue-light); border-radius: var(--radius); padding: 8px 16px; }
+.detail-info div { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #d3e3ff; font-size: 15px; }
+.detail-info div:last-child { border-bottom: none; }
+.detail-info dt { flex-shrink: 0; width: 5.5em; color: var(--text-sub); }
+
+.detail-block { padding: 24px 0 4px; }
+.detail-block h2 {
+  font-size: 18px; line-height: 1.4; margin-bottom: 12px;
+  padding-left: 10px; border-left: 4px solid var(--blue);
+}
+.detail-block p { font-size: 15px; }
+.detail-block .note { margin-top: 12px; font-size: 13px; color: var(--text-sub); }
+
+.check-list li { position: relative; padding: 6px 0 6px 28px; font-size: 15px; }
+.check-list li::before { content: "✓"; position: absolute; left: 4px; color: var(--blue); font-weight: bold; }
+
+.flow-list li { padding: 10px 14px; margin-bottom: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; font-size: 15px; }
+.flow-list strong { display: block; color: var(--blue-dark); font-size: 13px; }
+
+.company-info { margin-bottom: 12px; font-size: 15px; }
+.company-info div { display: flex; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.company-info dt { flex-shrink: 0; width: 5.5em; color: var(--text-sub); }
+
+/* 申し込みボタン：画面の下に固定 */
+.apply-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid var(--border);
+  padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .detail-title { font-size: 30px; }
+}
+
+/* ==========================================
+   募集一覧ページ（list.html）用の設定
+   ========================================== */
+.list-page { padding-top: 16px; padding-bottom: 40px; }
+.list-title { font-size: 24px; line-height: 1.4; margin: 4px 0 6px; }
+.list-lead { font-size: 14px; color: var(--text-sub); margin-bottom: 20px; }
+
+/* 一覧は、パソコンでも1列のまま表示する */
+.card-grid-single { grid-template-columns: 1fr; }
+
+@media (min-width: 768px) {
+  .list-title { font-size: 30px; }
+}
+
+/* ==========================================
+   申込フォーム（apply.html）・申込完了（complete.html）用の設定
+   ========================================== */
+.apply-page, .complete-page { padding-top: 16px; padding-bottom: 40px; }
+
+.proto-note { background: #fef3c7; color: #92400e; border-radius: 12px; padding: 8px 14px; font-size: 13px; margin-bottom: 16px; }
+
+/* 申し込むインターン */
+.apply-job { background: var(--blue-light); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 20px; }
+.apply-job-label { font-size: 12px; color: var(--text-sub); }
+.apply-job-company { font-size: 13px; color: var(--text-sub); margin-top: 2px; }
+.apply-job-title { font-size: 17px; font-weight: bold; line-height: 1.5; }
+.apply-error { background: #fee2e2; color: #991b1b; border-radius: 12px; padding: 14px 16px; }
+.apply-error a { text-decoration: underline; }
+
+/* 入力欄（文字は16px以上にして、スマホで勝手に拡大されないようにする） */
+.field { margin-bottom: 20px; }
+.field label { display: block; font-weight: bold; margin-bottom: 6px; }
+.field input[type="text"], .field input[type="email"], .field select, .field textarea {
+  width: 100%; min-height: var(--tap);
+  padding: 12px 14px; font-size: 16px; font-family: inherit; color: var(--text);
+  background: var(--white); border: 1px solid #cbd5e1; border-radius: 12px;
+}
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid rgba(37, 99, 235, 0.35); border-color: var(--blue); }
+.hint { font-size: 13px; color: var(--text-sub); margin-top: 6px; }
+.hint a { text-decoration: underline; color: var(--blue); }
+.center-text { text-align: center; }
+
+.badge { display: inline-block; padding: 0 8px; border-radius: 999px; font-size: 11px; font-weight: bold; vertical-align: 2px; margin-left: 4px; }
+.badge-req { background: #fee2e2; color: #b91c1c; }
+.badge-opt { background: #e5e7eb; color: #4b5563; }
+
+/* 個人情報の同意 */
+.consent { background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 24px; }
+.consent-text { font-size: 13px; color: var(--text-sub); margin-bottom: 12px; }
+.consent-check { display: flex; align-items: center; gap: 12px; min-height: var(--tap); font-weight: bold; cursor: pointer; }
+.consent-check input { flex-shrink: 0; width: 26px; height: 26px; accent-color: var(--blue); }
+
+/* 申込完了 */
+.complete-box { text-align: center; padding: 28px 16px; background: var(--blue-light); border-radius: 20px; margin-bottom: 20px; }
+.complete-icon {
+  width: 60px; height: 60px; margin: 0 auto 14px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: var(--white); font-size: 32px; font-weight: bold;
+}
+.complete-box h1 { font-size: 22px; line-height: 1.4; margin-bottom: 8px; }
+.complete-job { margin-top: 12px; font-size: 14px; color: var(--text-sub); }
+
+.line-box { text-align: center; border: 1px solid var(--border); border-radius: 20px; padding: 24px 16px; margin-bottom: 20px; }
+.line-lead { font-weight: bold; margin-bottom: 16px; line-height: 1.6; }
+.btn-line { background: #06c755; color: var(--white); }
+.btn-line:active { background: #05a648; }
+
+.complete-links { display: grid; gap: 8px; text-align: center; }
+.link-plain { padding: 12px; color: var(--text-sub); font-size: 14px; text-decoration: underline; }

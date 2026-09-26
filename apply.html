@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>インターン申込フォーム｜Voluntell インターンシップNAVI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== ヘッダー（他のページと同じ） ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-name">Voluntell インターンシップNAVI</a>
+      <nav class="header-nav">
+        <a href="list.html" class="nav-pc">募集を探す</a>
+        <a href="index.html#company" class="nav-company">企業の方はこちら</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container container-narrow apply-page">
+
+    <a href="list.html" class="back-link">← 募集一覧に戻る</a>
+
+    <h1 class="list-title">インターン申込フォーム</h1>
+    <p class="list-lead">入力は1分ほどで終わります。</p>
+
+    <!-- 【試作版のお知らせ】公開するときは、この1行を削除します -->
+    <p class="proto-note">【試作版】入力内容は、どこにも送信・保存されません。</p>
+
+    <!-- 申し込む募集（apply.js が表示します） -->
+    <section class="apply-job" id="apply-job" hidden>
+      <p class="apply-job-label">申し込むインターン</p>
+      <p class="apply-job-company" id="apply-company"></p>
+      <p class="apply-job-title" id="apply-title"></p>
+    </section>
+
+    <p class="apply-error" id="apply-error" hidden>
+      申し込む募集が見つかりませんでした。<a href="list.html">募集一覧</a>から、もう一度選んでください。
+    </p>
+
+    <!-- ========== 申込フォーム ========== -->
+    <form class="apply-form" id="apply-form" hidden>
+
+      <div class="field">
+        <label for="name">氏名 <span class="badge badge-req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="例：山田 花子" required>
+      </div>
+
+      <div class="field">
+        <label for="school">学校名 <span class="badge badge-req">必須</span></label>
+        <input type="text" id="school" name="school" placeholder="例：〇〇大学" required>
+      </div>
+
+      <div class="field">
+        <label for="grade">学年 <span class="badge badge-req">必須</span></label>
+        <select id="grade" name="grade" required>
+          <option value="">選んでください</option>
+          <option>高校1年</option>
+          <option>高校2年</option>
+          <option>高校3年</option>
+          <option>大学1年</option>
+          <option>大学2年</option>
+          <option>大学3年</option>
+          <option>大学4年</option>
+          <option>短大1年</option>
+          <option>短大2年</option>
+          <option>専門学校1年</option>
+          <option>専門学校2年</option>
+          <option>専門学校3年以上</option>
+          <option>その他</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="email">メールアドレス <span class="badge badge-req">必須</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="例：example@mail.com" required>
+        <p class="hint">運営からの連絡に使います。</p>
+      </div>
+
+      <div class="field">
+        <label for="message">応募理由・企業に伝えたいこと <span class="badge badge-opt">任意</span></label>
+        <textarea id="message" name="message" rows="5" placeholder="書かなくても申し込めます。気軽にどうぞ。"></textarea>
+      </div>
+
+      <!-- 個人情報の取扱い（公開前に、正式な文章を確認して差し替えます） -->
+      <div class="consent">
+        <p class="consent-text">
+          ご入力いただいた内容は、まずVoluntellが受け付けて記録します。そのうえで、応募したインターンを実施する企業へ、ご連絡や選考に必要な情報を共有します。電話番号・住所・生年月日などは取得しません。
+        </p>
+        <label class="consent-check">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>個人情報の取扱いに同意します <span class="badge badge-req">必須</span></span>
+        </label>
+        <p class="hint"><a href="#">プライバシーポリシー</a>（準備中）</p>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-large btn-block">この内容で申し込む</button>
+      <p class="hint center-text">LINEの登録は必要ありません。</p>
+    </form>
+
+  </main>
+
+  <!-- ========== フッター（他のページと同じ） ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name">Voluntell インターンシップNAVI</p>
+      <nav class="footer-nav">
+        <a href="#">運営者情報</a>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+      <p class="copyright">&copy; Voluntell</p>
+    </div>
+  </footer>
+
+  <script src="jobs-data.js"></script>
+  <script src="apply.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>インターン募集一覧｜Voluntell インターンシップNAVI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== ヘッダー（トップページと同じ） ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-name">Voluntell インターンシップNAVI</a>
+      <nav class="header-nav">
+        <a href="list.html" class="nav-pc">募集を探す</a>
+        <a href="index.html#company" class="nav-company">企業の方はこちら</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container container-narrow list-page">
+
+    <a href="index.html" class="back-link">← トップページに戻る</a>
+
+    <h1 class="list-title">インターン募集一覧</h1>
+    <p class="list-lead"><span id="job-count"></span>・新着順に表示しています</p>
+
+    <!-- 将来ここに「検索欄」や「カテゴリーで絞り込むボタン」を追加します -->
+
+    <!-- 募集カードは list.js が jobs-data.js を読んで、ここに表示します -->
+    <div class="card-grid card-grid-single" id="job-list"></div>
+
+    <noscript>
+      <p class="list-lead">募集を表示するには、JavaScript を有効にしてください。</p>
+    </noscript>
+
+  </main>
+
+  <!-- ========== フッター（トップページと同じ） ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name">Voluntell インターンシップNAVI</p>
+      <nav class="footer-nav">
+        <a href="#">運営者情報</a>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+      <p class="copyright">&copy; Voluntell</p>
+    </div>
+  </footer>
+
+  <script src="jobs-data.js"></script>
+  <script src="list.js"></script>
+</body>
+</html>

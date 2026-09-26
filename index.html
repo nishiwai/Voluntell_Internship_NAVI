@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>Voluntell インターンシップNAVI</title>
+  <meta name="description" content="大学生・短大生・専門学生・高校生など、対象は募集ごとに掲載。応募は無料のインターン募集サイトです。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== 1. ヘッダー ==========
+       スマホでは「企業の方はこちら」だけ右に表示します。
+       「募集を探す」はPCの広い画面のときだけ表示されます。 -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#top" class="site-name">Voluntell インターンシップNAVI</a>
+      <nav class="header-nav">
+        <a href="#jobs" class="nav-pc">募集を探す</a>
+        <a href="#company" class="nav-company">企業の方はこちら</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== 2. ファーストビュー ========== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>気になる仕事を、<br>インターンで体験してみよう</h1>
+          <p class="hero-sub">大学生・短大生・専門学生・高校生など、対象は募集ごとに掲載。<br>応募は無料です。</p>
+          <a href="list.html" class="btn btn-primary btn-large btn-block">インターン募集を見る</a>
+        </div>
+        <!-- ビジュアルスペース：後で写真やイラストに差し替えできます -->
+        <div class="hero-visual" aria-hidden="true">
+          <span class="visual-card">🙋 はじめての職場体験</span>
+          <span class="visual-card">💡 仕事をやってみよう</span>
+          <span class="visual-card">🤝 企業と出会う</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3. 新着のインターン募集 ========== -->
+    <section class="section" id="jobs">
+      <div class="container">
+        <h2 class="section-title">新着のインターン募集</h2>
+
+        <div class="card-grid">
+
+          <!-- 募集カード ①
+               ロゴがある場合は <div class="logo">ア</div> を
+               <div class="logo"><img src="logo.png" alt="企業名"></div> に変えます -->
+          <article class="job-card">
+            <div class="job-head">
+              <div class="logo">ア</div>
+              <p class="company">株式会社アオイテクノロジー</p>
+            </div>
+            <h3 class="job-title">Webサービスの企画・開発インターン</h3>
+            <div class="tags">
+              <span class="tag">大学生</span>
+              <span class="tag">専門学生</span>
+            </div>
+            <ul class="meta">
+              <li>📍 愛知県 春日井市</li>
+              <li>🏢 現地</li>
+            </ul>
+            <dl class="job-info">
+              <div><dt>期間</dt><dd>2週間～1か月</dd></div>
+              <div><dt>応募締切</dt><dd class="deadline">2026年11月30日</dd></div>
+            </dl>
+            <a href="detail.html" class="btn btn-outline btn-block">詳細を見る</a>
+          </article>
+
+          <!-- 募集カード ② -->
+          <article class="job-card">
+            <div class="job-head">
+              <div class="logo">サ</div>
+              <p class="company">株式会社サクラ</p>
+            </div>
+            <h3 class="job-title">マーケティング・広報インターン</h3>
+            <div class="tags">
+              <span class="tag">大学生</span>
+              <span class="tag">短大生</span>
+              <span class="tag">専門学生</span>
+            </div>
+            <ul class="meta">
+              <li>📍 愛知県 名古屋市</li>
+              <li>🏢 現地・オンライン</li>
+            </ul>
+            <dl class="job-info">
+              <div><dt>期間</dt><dd>1か月～3か月</dd></div>
+              <div><dt>応募締切</dt><dd class="deadline">2026年12月15日</dd></div>
+            </dl>
+            <a href="#" class="btn btn-outline btn-block">詳細を見る</a>
+          </article>
+
+          <!-- 募集カード ③ -->
+          <article class="job-card">
+            <div class="job-head">
+              <div class="logo">東</div>
+              <p class="company">東海製作株式会社</p>
+            </div>
+            <h3 class="job-title">ものづくり現場の職業体験インターン</h3>
+            <div class="tags">
+              <span class="tag">高校生</span>
+              <span class="tag">大学生</span>
+              <span class="tag">専門学生</span>
+            </div>
+            <ul class="meta">
+              <li>📍 愛知県 春日井市</li>
+              <li>🏢 現地</li>
+            </ul>
+            <dl class="job-info">
+              <div><dt>期間</dt><dd>3日間～1週間</dd></div>
+              <div><dt>応募締切</dt><dd class="deadline">2026年11月20日</dd></div>
+            </dl>
+            <a href="#" class="btn btn-outline btn-block">詳細を見る</a>
+          </article>
+
+          <!-- 募集カード ④ -->
+          <article class="job-card">
+            <div class="job-head">
+              <div class="logo">ネ</div>
+              <p class="company">株式会社ネクストデザイン</p>
+            </div>
+            <h3 class="job-title">地域課題に取り組むプロジェクトインターン</h3>
+            <div class="tags">
+              <span class="tag">大学生</span>
+              <span class="tag">短大生</span>
+            </div>
+            <ul class="meta">
+              <li>📍 愛知県 名古屋市</li>
+              <li>🏢 現地・オンライン</li>
+            </ul>
+            <dl class="job-info">
+              <div><dt>期間</dt><dd>1週間～1か月</dd></div>
+              <div><dt>応募締切</dt><dd class="deadline">2026年12月5日</dd></div>
+            </dl>
+            <a href="#" class="btn btn-outline btn-block">詳細を見る</a>
+          </article>
+
+        </div>
+
+        <div class="more">
+          <a href="list.html" class="btn btn-primary btn-block">すべての募集を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4. 応募までの流れ ========== -->
+    <section class="section section-tint">
+      <div class="container">
+        <h2 class="section-title">応募までの流れ</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">1</span>
+            <div>
+              <h3>募集を選ぶ</h3>
+              <p>気になるインターンの詳細を見る</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <div>
+              <h3>フォームで申し込む</h3>
+              <p>必要事項を入力して送信</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <div>
+              <h3>運営から連絡が届く</h3>
+              <p>Voluntell運営からご連絡します</p>
+            </div>
+          </li>
+        </ol>
+        <p class="free-note">応募は無料です</p>
+      </div>
+    </section>
+
+    <!-- ========== 5. このサービスの特徴 ========== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">このサービスの特徴</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="feature-icon">🎓</div>
+            <div>
+              <h3>幅広い学生が応募できる</h3>
+              <p>大学生・短大生・専門学生・高校生など、募集ごとに対象を明記。</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📝</div>
+            <div>
+              <h3>申込みはフォームだけ</h3>
+              <p>会員登録は不要。入力するだけで申し込めます。</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🤝</div>
+            <div>
+              <h3>運営が間に入ってサポート</h3>
+              <p>企業との連絡は、Voluntell運営がサポートします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 6. よくある質問（学生向け） ========== -->
+    <section class="section section-tint">
+      <div class="container container-narrow">
+        <h2 class="section-title">よくある質問</h2>
+
+        <details class="faq">
+          <summary>応募に費用はかかりますか？</summary>
+          <p>（仮）応募は無料です。</p>
+        </details>
+        <details class="faq">
+          <summary>高校生でも申し込めますか？</summary>
+          <p>（仮）募集ごとに対象が決まっています。各募集の「対象」をご確認ください。</p>
+        </details>
+        <details class="faq">
+          <summary>複数のインターンに申し込めますか？</summary>
+          <p>（仮）はい、複数の募集に申し込めます。</p>
+        </details>
+        <details class="faq">
+          <summary>申し込んだ後は、どのくらいで連絡がありますか？</summary>
+          <p>（仮）通常、数日以内にご連絡します。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ========== 7. 企業向け案内（学生向け導線より下） ========== -->
+    <section class="section" id="company">
+      <div class="container">
+        <div class="company-box">
+          <h2>インターン生を募集したい企業の方へ</h2>
+          <p class="company-lead">意欲のある学生との出会いを、Voluntellがサポートします。</p>
+          <ul class="company-list">
+            <li>大学生から高校生まで対象を選べる</li>
+            <li>掲載作業は運営が代行</li>
+            <li>まずは相談できる</li>
+          </ul>
+          <a href="#" class="btn btn-white btn-large btn-block">掲載について相談する</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== 8. フッター ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name">Voluntell インターンシップNAVI</p>
+      <nav class="footer-nav">
+        <a href="#">運営者情報</a>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+      <p class="copyright">&copy; Voluntell</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

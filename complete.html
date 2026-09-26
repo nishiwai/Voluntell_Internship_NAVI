@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>申込完了｜Voluntell インターンシップNAVI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== ヘッダー（他のページと同じ） ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-name">Voluntell インターンシップNAVI</a>
+      <nav class="header-nav">
+        <a href="list.html" class="nav-pc">募集を探す</a>
+        <a href="index.html#company" class="nav-company">企業の方はこちら</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container container-narrow complete-page">
+
+    <!-- ========== 申込完了メッセージ ========== -->
+    <section class="complete-box">
+      <div class="complete-icon">✓</div>
+      <h1>お申し込みありがとうございます</h1>
+      <p>内容を確認後、Voluntell運営よりご連絡します。</p>
+      <p class="complete-job" id="complete-job" hidden></p>
+    </section>
+
+    <!-- ========== LINE案内（登録は任意） ========== -->
+    <section class="line-box">
+      <p class="line-lead">今後もインターンや企業見学などの情報を受け取りたい方へ</p>
+      <a href="#" class="btn btn-line btn-large btn-block" id="line-button">Voluntell公式LINEを友だち追加</a>
+      <p class="hint center-text">登録は任意です。登録しなくても、申込みは完了しています。</p>
+    </section>
+
+    <div class="complete-links">
+      <a href="list.html" class="btn btn-outline btn-block">ほかの募集を見る</a>
+      <a href="index.html" class="link-plain">トップページに戻る</a>
+    </div>
+
+  </main>
+
+  <!-- ========== フッター（他のページと同じ） ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name">Voluntell インターンシップNAVI</p>
+      <nav class="footer-nav">
+        <a href="#">運営者情報</a>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+      <p class="copyright">&copy; Voluntell</p>
+    </div>
+  </footer>
+
+  <script src="jobs-data.js"></script>
+  <script src="site-config.js"></script>
+  <script src="complete.js"></script>
+</body>
+</html>
