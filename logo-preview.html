@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ロゴ確認用 | Voluntell インターンシップNAVI</title>
+<style>
+  body { margin: 0; padding: 24px 16px 48px; background: #fff; color: #6E6260; font-family: "Yu Gothic", "Hiragino Sans", Meiryo, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  h2 { font-size: 14px; margin: 32px 0 8px; }
+  p.note { font-size: 12px; margin: 0; }
+  .header { display: flex; align-items: center; padding: 0 16px; border-bottom: 1px solid #e6e2e0; background: #fff; box-sizing: border-box; }
+  .header img { display: block; height: auto; }
+  .header .menu { margin-left: auto; width: 24px; height: 2px; background: #6E6260; box-shadow: 0 -7px #6E6260, 0 7px #6E6260; }
+  /* PC */
+  .pc { width: 100%; max-width: 1100px; height: 72px; }
+  .pc img { width: 300px; }
+  /* Smartphone */
+  .phones { display: flex; flex-wrap: wrap; gap: 24px; }
+  .phone { border: 1px solid #ccc; border-radius: 8px; overflow: hidden; }
+  .phone .header { height: 56px; }
+  .phone.w390 { width: 390px; }
+  .phone.w360 { width: 360px; }
+  .phone.w320 { width: 320px; }
+  .phone .header img { width: 240px; }
+  .phone.w320 .header img { width: 210px; }
+  .label { font-size: 12px; margin: 4px 0 0; }
+  /* Large */
+  .large img { width: 100%; max-width: 720px; display: block; }
+</style>
+</head>
+<body>
+  <h1>Voluntell インターンシップNAVI 横型ロゴ 試作</h1>
+  <p class="note">確認用ページです。既存サイトには未反映。ロゴ: images/voluntell-navi-logo.svg</p>
+
+  <h2>PC ヘッダー（ロゴ幅 300px）</h2>
+  <div class="header pc"><img src="images/voluntell-navi-logo.svg" alt="Voluntell インターンシップNAVI"></div>
+
+  <h2>スマートフォン ヘッダー（幅 390 / 360 / 320px）</h2>
+  <div class="phones">
+    <div>
+      <div class="phone w390"><div class="header"><img src="images/voluntell-navi-logo.svg" alt="Voluntell インターンシップNAVI"><span class="menu"></span></div></div>
+      <p class="label">390px（ロゴ幅 240px / 高さ約24px）</p>
+    </div>
+    <div>
+      <div class="phone w360"><div class="header"><img src="images/voluntell-navi-logo.svg" alt="Voluntell インターンシップNAVI"><span class="menu"></span></div></div>
+      <p class="label">360px（ロゴ幅 240px）</p>
+    </div>
+    <div>
+      <div class="phone w320"><div class="header"><img src="images/voluntell-navi-logo.svg" alt="Voluntell インターンシップNAVI"><span class="menu"></span></div></div>
+      <p class="label">320px（ロゴ幅 210px）</p>
+    </div>
+  </div>
+
+  <h2>拡大表示（細部確認用）</h2>
+  <div class="large"><img src="images/voluntell-navi-logo.svg" alt="Voluntell インターンシップNAVI"></div>
+</body>
+</html>

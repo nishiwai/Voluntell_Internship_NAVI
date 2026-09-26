@@ -47,101 +47,10 @@
       <div class="container">
         <h2 class="section-title">新着のインターン募集</h2>
 
-        <div class="card-grid">
+        <p class="notice-monitor">※現在掲載中の5社は、モニター掲載用のサンプルです。募集内容は正式掲載時に企業と確認のうえ決定します。</p>
 
-          <!-- 募集カード ①
-               ロゴがある場合は <div class="logo">ア</div> を
-               <div class="logo"><img src="logo.png" alt="企業名"></div> に変えます -->
-          <article class="job-card">
-            <div class="job-head">
-              <div class="logo">ア</div>
-              <p class="company">株式会社アオイテクノロジー</p>
-            </div>
-            <h3 class="job-title">Webサービスの企画・開発インターン</h3>
-            <div class="tags">
-              <span class="tag">大学生</span>
-              <span class="tag">専門学生</span>
-            </div>
-            <ul class="meta">
-              <li>📍 愛知県 春日井市</li>
-              <li>🏢 現地</li>
-            </ul>
-            <dl class="job-info">
-              <div><dt>期間</dt><dd>2週間～1か月</dd></div>
-              <div><dt>応募締切</dt><dd class="deadline">2026年11月30日</dd></div>
-            </dl>
-            <a href="detail.html" class="btn btn-outline btn-block">詳細を見る</a>
-          </article>
-
-          <!-- 募集カード ② -->
-          <article class="job-card">
-            <div class="job-head">
-              <div class="logo">サ</div>
-              <p class="company">株式会社サクラ</p>
-            </div>
-            <h3 class="job-title">マーケティング・広報インターン</h3>
-            <div class="tags">
-              <span class="tag">大学生</span>
-              <span class="tag">短大生</span>
-              <span class="tag">専門学生</span>
-            </div>
-            <ul class="meta">
-              <li>📍 愛知県 名古屋市</li>
-              <li>🏢 現地・オンライン</li>
-            </ul>
-            <dl class="job-info">
-              <div><dt>期間</dt><dd>1か月～3か月</dd></div>
-              <div><dt>応募締切</dt><dd class="deadline">2026年12月15日</dd></div>
-            </dl>
-            <a href="#" class="btn btn-outline btn-block">詳細を見る</a>
-          </article>
-
-          <!-- 募集カード ③ -->
-          <article class="job-card">
-            <div class="job-head">
-              <div class="logo">東</div>
-              <p class="company">東海製作株式会社</p>
-            </div>
-            <h3 class="job-title">ものづくり現場の職業体験インターン</h3>
-            <div class="tags">
-              <span class="tag">高校生</span>
-              <span class="tag">大学生</span>
-              <span class="tag">専門学生</span>
-            </div>
-            <ul class="meta">
-              <li>📍 愛知県 春日井市</li>
-              <li>🏢 現地</li>
-            </ul>
-            <dl class="job-info">
-              <div><dt>期間</dt><dd>3日間～1週間</dd></div>
-              <div><dt>応募締切</dt><dd class="deadline">2026年11月20日</dd></div>
-            </dl>
-            <a href="#" class="btn btn-outline btn-block">詳細を見る</a>
-          </article>
-
-          <!-- 募集カード ④ -->
-          <article class="job-card">
-            <div class="job-head">
-              <div class="logo">ネ</div>
-              <p class="company">株式会社ネクストデザイン</p>
-            </div>
-            <h3 class="job-title">地域課題に取り組むプロジェクトインターン</h3>
-            <div class="tags">
-              <span class="tag">大学生</span>
-              <span class="tag">短大生</span>
-            </div>
-            <ul class="meta">
-              <li>📍 愛知県 名古屋市</li>
-              <li>🏢 現地・オンライン</li>
-            </ul>
-            <dl class="job-info">
-              <div><dt>期間</dt><dd>1週間～1か月</dd></div>
-              <div><dt>応募締切</dt><dd class="deadline">2026年12月5日</dd></div>
-            </dl>
-            <a href="#" class="btn btn-outline btn-block">詳細を見る</a>
-          </article>
-
-        </div>
+        <!-- 募集カードは home.js が jobs-data.js を読んで、ここに表示します -->
+        <div class="card-grid" id="home-job-list"></div>
 
         <div class="more">
           <a href="list.html" class="btn btn-primary btn-block">すべての募集を見る</a>
@@ -266,6 +175,9 @@
     </div>
   </footer>
 
+  <script src="jobs-data.js"></script>
+  <script src="cards.js"></script>
+  <script src="home.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

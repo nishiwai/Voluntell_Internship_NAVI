@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#2563eb">
-  <title>Webサービスの企画・開発インターン｜Voluntell インターンシップNAVI</title>
+  <title>募集詳細｜Voluntell インターンシップNAVI</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="detail-page">
@@ -24,88 +24,23 @@
 
     <a href="list.html" class="back-link">← 募集一覧に戻る</a>
 
-    <!-- ========== 募集の基本情報 ==========
-         ここから下の文章を書き換えると、別の企業の募集ページになります。
-         ロゴがある場合は <div class="logo">ア</div> を
-         <div class="logo"><img src="logo.png" alt="企業名"></div> に変えます -->
-    <section class="detail-top">
-      <div class="job-head">
-        <div class="logo">ア</div>
-        <p class="company">株式会社アオイテクノロジー</p>
-      </div>
-      <h1 class="detail-title">Webサービスの企画・開発インターン</h1>
+    <!-- ========== 募集の中身 ==========
+         このページはどの企業でも同じ形です。
+         アドレスの ?job=募集ID（例: detail.html?job=tajima-kogyo）に合わせて、
+         detail.js が jobs-data.js の内容をここに表示します。 -->
+    <div id="detail-root"></div>
 
-      <div class="tags">
-        <span class="tag">大学生</span>
-        <span class="tag">専門学生</span>
-      </div>
-
-      <dl class="detail-info">
-        <div><dt>対象学生</dt><dd>大学生・専門学生</dd></div>
-        <div><dt>勤務地</dt><dd>愛知県 春日井市（詳しい住所は申込み後にご案内）</dd></div>
-        <div><dt>勤務形態</dt><dd>現地</dd></div>
-        <div><dt>期間</dt><dd>2週間～1か月</dd></div>
-        <div><dt>応募締切</dt><dd class="deadline">2026年11月30日</dd></div>
-      </dl>
-    </section>
-
-    <!-- ========== どんなインターンなのか ========== -->
-    <section class="detail-block">
-      <h2>どんなインターンなのか</h2>
-      <p>（サンプル）実際のWebサービスが「どう企画され、どう作られていくのか」を、現場の社員と一緒に体験できるインターンです。プログラミングの経験がなくても参加できます。</p>
-    </section>
-
-    <!-- ========== 体験できること ========== -->
-    <section class="detail-block">
-      <h2>体験できること</h2>
-      <ul class="check-list">
-        <li>Webサービスの企画会議への参加</li>
-        <li>画面のデザイン案づくり</li>
-        <li>簡単なプログラムの作成</li>
-        <li>社員へのインタビュー</li>
-      </ul>
-    </section>
-
-    <!-- ========== こんな学生におすすめ ========== -->
-    <section class="detail-block">
-      <h2>こんな学生におすすめ</h2>
-      <ul class="check-list">
-        <li>ITやWebの仕事に興味がある</li>
-        <li>ものづくりが好き</li>
-        <li>将来の仕事をまだ迷っている</li>
-      </ul>
-    </section>
-
-    <!-- ========== 実施内容 ========== -->
-    <section class="detail-block">
-      <h2>実施内容</h2>
-      <ol class="flow-list">
-        <li><strong>1日目</strong>会社の紹介・オリエンテーション</li>
-        <li><strong>2日目〜</strong>チームに分かれてWebサービスを企画</li>
-        <li><strong>中盤</strong>デザインと簡単なプログラムづくり</li>
-        <li><strong>最終日</strong>成果の発表・フィードバック</li>
-      </ol>
-      <p class="note">（サンプル）服装は自由です。交通費の支給や報酬の有無は、申込み後にご案内します。</p>
-    </section>
-
-    <!-- ========== 企業について ========== -->
-    <section class="detail-block">
-      <h2>企業について</h2>
-      <dl class="company-info">
-        <div><dt>企業名</dt><dd>株式会社アオイテクノロジー</dd></div>
-        <div><dt>所在地</dt><dd>愛知県 春日井市</dd></div>
-        <div><dt>事業内容</dt><dd>Webサービスの企画・開発</dd></div>
-      </dl>
-      <p>（サンプル）地元のお店や会社向けに、Webサイトや業務アプリを作っているIT企業です。少人数のチームで、企画から開発まで一貫して行っています。</p>
-    </section>
+    <noscript>
+      <p class="list-lead">募集を表示するには、JavaScript を有効にしてください。</p>
+    </noscript>
 
   </main>
 
   <!-- ========== 申し込みボタン（画面の下に固定表示） ==========
-       ?job= の後ろは、jobs-data.js の募集IDです（申込みで、どの募集かを引き継ぎます）。 -->
-  <div class="apply-bar">
+       リンク先は detail.js が、表示中の募集に合わせて設定します。 -->
+  <div class="apply-bar" id="apply-bar" hidden>
     <div class="container container-narrow">
-      <a href="apply.html?job=aoi-technology" class="btn btn-primary btn-large btn-block">このインターンに申し込む</a>
+      <a href="#" id="apply-bar-link" class="btn btn-primary btn-large btn-block">このインターンに申し込む</a>
     </div>
   </div>
 
@@ -123,5 +58,8 @@
     </div>
   </footer>
 
+  <script src="jobs-data.js"></script>
+  <script src="cards.js"></script>
+  <script src="detail.js"></script>
 </body>
 </html>
