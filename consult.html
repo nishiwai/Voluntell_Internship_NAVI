@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <title>掲載のご相談｜Voluntell インターンシップNAVI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== ヘッダー（他のページと同じ） ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-name"><img class="site-logo" src="images/voluntell-internship-navi-logo-web.png" alt="Voluntell インターンシップNAVI" width="566" height="108"></a>
+      <nav class="header-nav">
+        <a href="list.html" class="nav-pc">募集を探す</a>
+        <a href="index.html#company" class="nav-company"><span class="label-full">企業の方はこちら</span><span class="label-short">企業の方へ</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container container-narrow apply-page">
+
+    <a href="index.html#company" class="back-link">← 企業向けのご案内に戻る</a>
+
+    <h1 class="list-title">掲載についてのご相談</h1>
+    <p class="list-lead">まずは気軽にご相談ください。掲載作業は運営が代行します。</p>
+
+    <!-- 入力チェックのエラー表示（consult.js が表示します） -->
+    <p class="apply-error" id="consult-error" role="alert" hidden></p>
+
+    <!-- ========== 相談フォーム ========== -->
+    <form class="apply-form" id="consult-form" novalidate>
+
+      <div class="field">
+        <label for="company">会社名 <span class="badge badge-req">必須</span></label>
+        <input type="text" id="company" name="company" autocomplete="organization" placeholder="例：株式会社〇〇" required>
+      </div>
+
+      <div class="field">
+        <label for="name">担当者名 <span class="badge badge-req">必須</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="例：山田 太郎" required>
+      </div>
+
+      <div class="field">
+        <label for="email">メールアドレス <span class="badge badge-req">必須</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="例：example@company.co.jp" required>
+        <p class="hint">運営からの返信に使います。</p>
+      </div>
+
+      <div class="field">
+        <label for="phone">電話番号 <span class="badge badge-opt">任意</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="例：03-1234-5678">
+      </div>
+
+      <div class="field">
+        <label for="message">相談内容 <span class="badge badge-req">必須</span></label>
+        <textarea id="message" name="message" rows="5" placeholder="例：インターン生を募集したい。掲載の流れや費用を知りたい。" required></textarea>
+      </div>
+
+      <!-- ボット対策の隠し項目：人には見えません。ここに何か入っていたら、自動投稿として保存しません。消さないでください -->
+      <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+        <label for="website">この欄は空のままにしてください</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- 個人情報の取扱い（公開前に、正式な文章を確認して差し替えます） -->
+      <div class="consent">
+        <p class="consent-text">
+          ご入力いただいた内容は、掲載のご相談への対応と、ご連絡のためにVoluntellが使用します。
+        </p>
+        <label class="consent-check">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>個人情報の取扱いに同意します <span class="badge badge-req">必須</span></span>
+        </label>
+        <p class="hint"><a href="#">プライバシーポリシー</a>（準備中）</p>
+      </div>
+
+      <button type="submit" id="submit-button" class="btn btn-primary btn-large btn-block">この内容で相談する</button>
+      <p class="hint center-text">相談だけでも大丈夫です。掲載を必ず申し込む必要はありません。</p>
+    </form>
+
+  </main>
+
+  <!-- ========== フッター（他のページと同じ） ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name">Voluntell インターンシップNAVI</p>
+      <nav class="footer-nav">
+        <a href="#">運営者情報</a>
+        <a href="#">利用規約</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </nav>
+      <p class="copyright">&copy; Voluntell</p>
+    </div>
+  </footer>
+
+  <script src="consult.js"></script>
+</body>
+</html>
