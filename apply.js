@@ -16,6 +16,31 @@ if (job) {
   document.getElementById("apply-error").hidden = false;
 }
 
+// 学生区分に合わせて、学年の選択肢を切り替える
+const GRADES = {
+  "大学生": ["1年", "2年", "3年", "4年", "修士1年", "修士2年", "その他"],
+  "短大生": ["1年", "2年"],
+  "専門学生": ["1年", "2年", "3年", "4年"],
+  "高校生": ["1年", "2年", "3年"]
+};
+const categorySelect = document.getElementById("category");
+const gradeSelect = document.getElementById("grade");
+
+categorySelect.addEventListener("change", function () {
+  const list = GRADES[categorySelect.value] || [];
+  gradeSelect.innerHTML = "";
+  const first = document.createElement("option");
+  first.value = "";
+  first.textContent = list.length ? "選んでください" : "先に学生区分を選んでください";
+  gradeSelect.appendChild(first);
+  list.forEach(function (g) {
+    const opt = document.createElement("option");
+    opt.textContent = g;
+    gradeSelect.appendChild(opt);
+  });
+  gradeSelect.disabled = list.length === 0;
+});
+
 document.getElementById("apply-form").addEventListener("submit", function (event) {
   event.preventDefault(); // ここで止めて、下の処理で完了ページへ進む
   // 個人情報はアドレスに載せず、募集IDだけを引き継ぐ

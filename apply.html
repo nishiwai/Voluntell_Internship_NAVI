@@ -12,10 +12,10 @@
   <!-- ========== ヘッダー（他のページと同じ） ========== -->
   <header class="header">
     <div class="container header-inner">
-      <a href="index.html" class="site-name">Voluntell インターンシップNAVI</a>
+      <a href="index.html" class="site-name"><img class="site-logo" src="images/voluntell-internship-navi-logo-web.png" alt="Voluntell インターンシップNAVI" width="566" height="108"></a>
       <nav class="header-nav">
         <a href="list.html" class="nav-pc">募集を探す</a>
-        <a href="index.html#company" class="nav-company">企業の方はこちら</a>
+        <a href="index.html#company" class="nav-company"><span class="label-full">企業の方はこちら</span><span class="label-short">企業の方へ</span></a>
       </nav>
     </div>
   </header>
@@ -55,22 +55,20 @@
       </div>
 
       <div class="field">
-        <label for="grade">学年 <span class="badge badge-req">必須</span></label>
-        <select id="grade" name="grade" required>
+        <label for="category">学生区分 <span class="badge badge-req">必須</span></label>
+        <select id="category" name="category" required>
           <option value="">選んでください</option>
-          <option>高校1年</option>
-          <option>高校2年</option>
-          <option>高校3年</option>
-          <option>大学1年</option>
-          <option>大学2年</option>
-          <option>大学3年</option>
-          <option>大学4年</option>
-          <option>短大1年</option>
-          <option>短大2年</option>
-          <option>専門学校1年</option>
-          <option>専門学校2年</option>
-          <option>専門学校3年以上</option>
-          <option>その他</option>
+          <option>大学生</option>
+          <option>短大生</option>
+          <option>専門学生</option>
+          <option>高校生</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="grade">学年 <span class="badge badge-req">必須</span></label>
+        <select id="grade" name="grade" required disabled>
+          <option value="">先に学生区分を選んでください</option>
         </select>
       </div>
 
@@ -81,15 +79,19 @@
       </div>
 
       <div class="field">
-        <label for="message">応募理由・企業に伝えたいこと <span class="badge badge-opt">任意</span></label>
-        <textarea id="message" name="message" rows="5" placeholder="書かなくても申し込めます。気軽にどうぞ。"></textarea>
+        <label for="phone">電話番号 <span class="badge badge-opt">任意</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="例：090-1234-5678">
+      </div>
+
+      <div class="field">
+        <label for="message">応募理由・参加したい理由 <span class="badge badge-req">必須</span></label>
+        <textarea id="message" name="message" rows="5" placeholder="このインターンに参加したい理由を書いてください。" required></textarea>
       </div>
 
       <!-- 個人情報の取扱い（公開前に、正式な文章を確認して差し替えます） -->
       <div class="consent">
         <p class="consent-text">
-          ご入力いただいた内容は、まずVoluntellが受け付けて記録します。そのうえで、応募したインターンを実施する企業へ、ご連絡や選考に必要な情報を共有します。電話番号・住所・生年月日などは取得しません。
-        </p>
+          ご入力いただいた内容は、まずVoluntellが受け付けて記録します。そのうえで、応募したインターンを実施する企業へ、ご連絡や選考に必要な情報を共有します。        </p>
         <label class="consent-check">
           <input type="checkbox" id="consent" name="consent" required>
           <span>個人情報の取扱いに同意します <span class="badge badge-req">必須</span></span>
