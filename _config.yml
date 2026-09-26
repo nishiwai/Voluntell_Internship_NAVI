@@ -1,0 +1,10 @@
+# GitHub Pages（お客様向けの公開サイト）の設定
+#
+# 下のファイルは開発用です。GitHubには残りますが、
+# 公開サイトのURLからは見られなくなります（開くと404になります）。
+# 新しく開発用のファイルを増やしたときは、ここに1行足してください。
+exclude:
+  - PROJECT.md
+  - logo-preview.html
+  - logo-preview-v2.html
+  - logo-concepts.js
