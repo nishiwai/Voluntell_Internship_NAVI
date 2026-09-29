@@ -447,6 +447,7 @@ a.sponsor-banner-link:focus-visible {
 .policy-body h3 { font-size: 15px; line-height: 1.5; margin: 16px 0 6px; }
 .policy-body p { margin-bottom: 10px; line-height: 1.8; }
 .policy-body ul { margin: 0 0 10px; padding-left: 1.4em; list-style: disc; }
+.policy-body ol { margin: 0 0 10px; padding-left: 1.4em; list-style: decimal; }
 .policy-body li { margin-bottom: 4px; line-height: 1.7; }
 
 @media (min-width: 768px) {
