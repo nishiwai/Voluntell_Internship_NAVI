@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" role="img" aria-label="サンプル企業のロゴ画像（架空のサンプルです）">
+  <title>サンプル企業ロゴ（架空のサンプル画像）</title>
+
+  <!-- 背景（NAVIサイトの配色に合わせた薄い青の角丸） -->
+  <rect x="1" y="1" width="118" height="70" rx="14" fill="#eaf2ff" stroke="#c7dbfb" stroke-width="1.5"/>
+
+  <!-- 架空のロゴマーク（星形。特定の企業を連想させない、一般的な図柄） -->
+  <g transform="translate(35,29)">
+    <path
+      d="M0,-15 L4.2,-4.4 15.6,-3.8 6.6,3.3 9.6,14.3 0,7.8 -9.6,14.3 -6.6,3.3 -15.6,-3.8 -4.2,-4.4 Z"
+      fill="#2563eb"
+    />
+  </g>
+
+  <!-- 「サンプル」の文字（画像だけを見ても架空だと分かるように） -->
+  <text
+    x="60" y="62"
+    text-anchor="middle"
+    font-family="'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif"
+    font-size="15"
+    font-weight="700"
+    fill="#1d4ed8"
+  >サンプル</text>
+</svg>

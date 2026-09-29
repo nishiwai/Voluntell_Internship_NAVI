@@ -159,6 +159,88 @@
       </div>
     </section>
 
+    <!-- ==========================================================
+         7.5. エール企業バナー（社内確認用の試作）
+         ・営業時に見せるための試作で、本番の掲載内容ではありません。
+         ・企業名・ロゴ・紹介文・URLはすべて架空のサンプルです。
+         ・上段「エール企業＋」はリンクあり、下段「エール企業」はリンクなしで、常時2段表示します。
+         ・掲載位置は「7. 企業向け案内」の青い枠の直後、フッターの直前。
+         ・トップページに表示するのは各プラン最大2社（合計最大4社）に固定しています。
+           今後、掲載企業が増えても、このセクションを縦に伸ばして全社を並べる作りにはしません。
+           将来的に増えた分は「エール企業一覧」ページ（未作成）で見せる想定ですが、
+           今回は一覧ページも、そこへの未完成のリンクも作っていません。
+         ・募集一覧（card-grid）の並び順・件数や、申込機能には一切さわっていません。
+    ========================================================== -->
+    <section class="section sponsor-proto" id="sponsor-proto">
+      <div class="container">
+        <h2 class="section-title">Voluntellを応援して頂いている「エール企業」</h2>
+
+        <div class="sponsor-tier">
+          <p class="sponsor-tier-label sponsor-tier-label-plus">エール企業＋</p>
+          <div class="sponsor-grid">
+            <!-- リンクあり（有料掲載リンクを想定。rel="sponsored"を付与） -->
+            <a
+              class="sponsor-banner sponsor-banner-link"
+              href="https://example.com/sample-sponsor-plus-a"
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              aria-label="サンプル企業プラスA株式会社（架空のサンプルです）学生の挑戦を応援しています。（紹介文サンプル）見本用のリンク先ページへ移動します（実在企業のページではありません。別タブで開きます）"
+            >
+              <div class="sponsor-banner-body">
+                <img class="sponsor-logo" src="images/sponsor-sample-logo.svg" alt="サンプル企業のロゴ画像（架空のサンプルです）" width="120" height="72">
+                <div class="sponsor-text">
+                  <p class="sponsor-name">サンプル企業プラスA株式会社（架空のサンプルです）</p>
+                  <p class="sponsor-lead">学生の挑戦を応援しています。（紹介文サンプル）</p>
+                  <span class="sponsor-link-hint">見本リンク先を見る（サンプル）›</span>
+                </div>
+              </div>
+            </a>
+            <a
+              class="sponsor-banner sponsor-banner-link"
+              href="https://example.com/sample-sponsor-plus-b"
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              aria-label="サンプル企業プラスB株式会社（架空のサンプルです）学生の挑戦を応援しています。（紹介文サンプル）見本用のリンク先ページへ移動します（実在企業のページではありません。別タブで開きます）"
+            >
+              <div class="sponsor-banner-body">
+                <img class="sponsor-logo" src="images/sponsor-sample-logo.svg" alt="サンプル企業のロゴ画像（架空のサンプルです）" width="120" height="72">
+                <div class="sponsor-text">
+                  <p class="sponsor-name">サンプル企業プラスB株式会社（架空のサンプルです）</p>
+                  <p class="sponsor-lead">学生の挑戦を応援しています。（紹介文サンプル）</p>
+                  <span class="sponsor-link-hint">見本リンク先を見る（サンプル）›</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="sponsor-tier">
+          <p class="sponsor-tier-label">エール企業</p>
+          <div class="sponsor-grid">
+            <!-- リンクなし（押せる見た目にしない） -->
+            <div class="sponsor-banner">
+              <div class="sponsor-banner-body">
+                <img class="sponsor-logo" src="images/sponsor-sample-logo.svg" alt="サンプル企業のロゴ画像（架空のサンプルです）" width="120" height="72">
+                <div class="sponsor-text">
+                  <p class="sponsor-name">サンプル企業A株式会社（架空のサンプルです）</p>
+                  <p class="sponsor-lead">学生の挑戦を応援しています。（紹介文サンプル）</p>
+                </div>
+              </div>
+            </div>
+            <div class="sponsor-banner">
+              <div class="sponsor-banner-body">
+                <img class="sponsor-logo" src="images/sponsor-sample-logo.svg" alt="サンプル企業のロゴ画像（架空のサンプルです）" width="120" height="72">
+                <div class="sponsor-text">
+                  <p class="sponsor-name">サンプル企業B株式会社（架空のサンプルです）</p>
+                  <p class="sponsor-lead">学生の挑戦を応援しています。（紹介文サンプル）</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ========== 8. フッター ========== -->
