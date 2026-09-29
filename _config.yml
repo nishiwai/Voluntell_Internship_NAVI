@@ -8,3 +8,6 @@ exclude:
   - logo-preview.html
   - logo-preview-v2.html
   - logo-concepts.js
+  - docs/
+  - student-applications/
+  - STUDENT_APPLICATIONS_SETUP.md

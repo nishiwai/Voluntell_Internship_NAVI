@@ -25,13 +25,17 @@
     <a href="index.html" class="back-link">← トップページに戻る</a>
 
     <h1 class="list-title">インターン募集一覧</h1>
-    <p class="list-lead"><span id="job-count"></span>・新着順に表示しています</p>
+    <p class="list-lead"><span id="job-count" aria-live="polite"></span>・新着順に表示しています</p>
     <p class="notice-monitor">※現在掲載中の5社は、モニター掲載用のサンプルです。募集内容は正式掲載時に企業と確認のうえ決定します。</p>
 
-    <!-- 将来ここに「検索欄」や「カテゴリーで絞り込むボタン」を追加します -->
+    <div class="field list-search" role="search">
+      <label for="job-search">募集を検索</label>
+      <input type="search" id="job-search" name="q" autocomplete="off" placeholder="企業名・募集名・地域など">
+    </div>
 
     <!-- 募集カードは list.js が jobs-data.js を読んで、ここに表示します -->
     <div class="card-grid card-grid-single" id="job-list"></div>
+    <p class="list-empty" id="job-empty" role="status" hidden>条件に合う募集が見つかりません。キーワードを変えてお試しください。</p>
 
     <noscript>
       <p class="list-lead">募集を表示するには、JavaScript を有効にしてください。</p>
@@ -44,10 +48,10 @@
     <div class="container">
       <p class="footer-name">Voluntell インターンシップNAVI</p>
       <nav class="footer-nav">
-        <a href="#">運営者情報</a>
-        <a href="#">利用規約</a>
-        <a href="#">プライバシーポリシー</a>
-        <a href="#">お問い合わせ</a>
+        <span>運営者情報（準備中）</span>
+        <span>利用規約（準備中）</span>
+        <span>プライバシーポリシー（準備中）</span>
+        <a href="consult.html">企業の掲載相談</a>
       </nav>
       <p class="copyright">&copy; Voluntell</p>
     </div>

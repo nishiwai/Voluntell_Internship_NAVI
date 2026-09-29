@@ -2,6 +2,31 @@
 // （カードの作り方は cards.js にあります）
 
 const jobsInOrder = sortedJobs();
+const jobList = document.getElementById("job-list");
+const jobCount = document.getElementById("job-count");
+const searchInput = document.getElementById("job-search");
+const emptyState = document.getElementById("job-empty");
 
-document.getElementById("job-list").innerHTML = jobsInOrder.map(makeCard).join("");
-document.getElementById("job-count").textContent = "全" + jobsInOrder.length + "件";
+function renderJobs() {
+	const query = searchInput.value.trim().toLocaleLowerCase();
+	const filteredJobs = jobsInOrder.filter(function (job) {
+		const searchableText = [
+			job.company,
+			job.title,
+			job.industry,
+			job.jobCategory,
+			job.prefecture,
+			job.city,
+			job.workStyle,
+			job.targets.join(" ")
+		].join(" ").toLocaleLowerCase();
+		return searchableText.includes(query);
+	});
+
+	jobList.innerHTML = filteredJobs.map(makeCard).join("");
+	jobCount.textContent = query ? filteredJobs.length + "件" : "全" + jobsInOrder.length + "件";
+	emptyState.hidden = filteredJobs.length !== 0;
+}
+
+searchInput.addEventListener("input", renderJobs);
+renderJobs();

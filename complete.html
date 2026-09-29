@@ -23,7 +23,13 @@
   <main class="container container-narrow complete-page">
 
     <!-- ========== 申込完了メッセージ ========== -->
-    <section class="complete-box">
+    <section class="complete-box" id="complete-pending">
+      <div class="complete-icon">!</div>
+      <h1>申込の保存を確認できません</h1>
+      <p>申込フォームから送信し、保存が確認できた場合のみ完了表示されます。</p>
+    </section>
+
+    <section class="complete-box" id="complete-success" hidden>
       <div class="complete-icon">✓</div>
       <h1>お申し込みありがとうございます</h1>
       <p>内容を確認後、Voluntell運営よりご連絡します。</p>
@@ -31,7 +37,7 @@
     </section>
 
     <!-- ========== LINE案内（登録は任意） ========== -->
-    <section class="line-box">
+    <section class="line-box" hidden>
       <p class="line-lead">今後もインターンや企業見学などの情報を受け取りたい方へ</p>
       <a href="#" class="btn btn-line btn-large btn-block" id="line-button">
         <svg class="line-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><ellipse cx="24" cy="21" rx="22" ry="18"/><path d="M14 36 L12 46 L26 38 Z"/><text x="24" y="26" text-anchor="middle" textLength="30" lengthAdjust="spacingAndGlyphs">LINE</text></svg>
@@ -52,10 +58,10 @@
     <div class="container">
       <p class="footer-name">Voluntell インターンシップNAVI</p>
       <nav class="footer-nav">
-        <a href="#">運営者情報</a>
-        <a href="#">利用規約</a>
-        <a href="#">プライバシーポリシー</a>
-        <a href="#">お問い合わせ</a>
+        <span>運営者情報（準備中）</span>
+        <span>利用規約（準備中）</span>
+        <span>プライバシーポリシー（準備中）</span>
+        <a href="consult.html">企業の掲載相談</a>
       </nav>
       <p class="copyright">&copy; Voluntell</p>
     </div>

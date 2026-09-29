@@ -1,0 +1,5 @@
+# 公開リポジトリに載せない内部資料
+# （実体は Voluntell_Internship_NAVI フォルダの外の内部資料フォルダに移動済み）
+docs/
+student-applications/
+STUDENT_APPLICATIONS_SETUP.md

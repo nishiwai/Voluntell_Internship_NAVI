@@ -193,7 +193,7 @@ ul, ol { list-style: none; }
 .footer { background: #0f172a; color: #cbd5e1; padding: 32px 0 24px; text-align: center; }
 .footer-name { color: var(--white); font-weight: bold; margin-bottom: 8px; }
 .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 20px; margin-bottom: 12px; font-size: 14px; }
-.footer-nav a { padding: 10px 0; }  /* 押しやすいように上下に余白 */
+.footer-nav a, .footer-nav span { padding: 10px 0; }
 .copyright { font-size: 12px; opacity: 0.7; }
 
 /* ==========================================
@@ -338,7 +338,7 @@ ul, ol { list-style: none; }
 /* 入力欄（文字は16px以上にして、スマホで勝手に拡大されないようにする） */
 .field { margin-bottom: 20px; }
 .field label { display: block; font-weight: bold; margin-bottom: 6px; }
-.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
+.field input[type="text"], .field input[type="search"], .field input[type="email"], .field input[type="tel"], .field select, .field textarea {
   width: 100%; min-height: var(--tap);
   padding: 12px 14px; font-size: 16px; font-family: inherit; color: var(--text);
   background: var(--white); border: 1px solid #cbd5e1; border-radius: 12px;
@@ -356,6 +356,11 @@ ul, ol { list-style: none; }
 /* 個人情報の同意 */
 .consent { background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 24px; }
 .consent-text { font-size: 13px; color: var(--text-sub); margin-bottom: 12px; }
+.consent-text h2 { font-size: 15px; color: var(--text); margin: 0 0 6px; }
+.consent-text h3 { font-size: 13px; color: var(--text); margin: 12px 0 2px; }
+.consent-text p { margin: 0 0 4px; }
+.consent-text ul { margin: 0 0 4px; padding-left: 1.4em; list-style: disc; }
+.consent-guardian[hidden] { display: none; }
 .consent-check { display: flex; align-items: center; gap: 12px; min-height: var(--tap); font-weight: bold; cursor: pointer; }
 .consent-check input { flex-shrink: 0; width: 26px; height: 26px; accent-color: var(--blue); }
 
