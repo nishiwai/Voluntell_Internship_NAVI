@@ -65,16 +65,42 @@
         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
       </div>
 
-      <!-- 個人情報の取扱い（公開前に、正式な文章を確認して差し替えます） -->
+      <!-- 個人情報の取扱い（企業向け掲載相談_個人情報同意文_案_20260929.md にもとづく確定版） -->
       <div class="consent">
-        <p class="consent-text">
-          ご入力いただいた内容は、掲載のご相談への対応と、ご連絡のためにVoluntellが使用します。
-        </p>
+        <div class="consent-text">
+          <h2>個人情報の取扱いについて</h2>
+          <p>掲載のご相談をいただく前に、以下をお読みください。</p>
+
+          <h3>1. 運営者</h3>
+          <p>有限会社カツミ工業（Voluntell運営）</p>
+
+          <h3>2. 取得する情報</h3>
+          <p>会社名、担当者名、メールアドレス、電話番号（入力した場合）、ご相談内容。</p>
+
+          <h3>3. 利用する目的</h3>
+          <ul>
+            <li>掲載のご相談への対応</li>
+            <li>ご相談へのご連絡</li>
+          </ul>
+          <p>上記以外の目的には使いません。</p>
+
+          <h3>4. 第三者への提供</h3>
+          <p>ご相談いただいた内容を、相談対応のために外部の企業へ提供することはありません。</p>
+
+          <h3>5. 保存期間</h3>
+          <p>ご相談への対応が終了してから1年間保存します。ただし、掲載などのお取引が続く場合は、そのお取引が続いている間は保存し、お取引の終了後1年間を目安に削除します。</p>
+
+          <h3>6. 内容の確認・訂正・削除のご連絡</h3>
+          <p>ご自身の情報の確認、訂正、削除をご希望の場合は、次のメールアドレスへご連絡ください。<br>ru-to.3@nifty.ne.jp</p>
+
+          <h3>7. 任意項目・同意しない場合</h3>
+          <p>電話番号は入力しなくてもご相談いただけます。個人情報の取扱いに同意いただけない場合は、フォームから相談を送信できません。</p>
+        </div>
         <label class="consent-check">
           <input type="checkbox" id="consent" name="consent" required>
           <span>個人情報の取扱いに同意します <span class="badge badge-req">必須</span></span>
         </label>
-        <p class="hint">プライバシーポリシー（準備中）</p>
+        <p class="hint"><a href="privacy.html">プライバシーポリシー</a></p>
       </div>
 
       <button type="submit" id="submit-button" class="btn btn-primary btn-large btn-block">この内容で相談する</button>
@@ -90,7 +116,7 @@
       <nav class="footer-nav">
         <span>運営者情報（準備中）</span>
         <span>利用規約（準備中）</span>
-        <span>プライバシーポリシー（準備中）</span>
+        <a href="privacy.html">プライバシーポリシー</a>
         <a href="consult.html">企業の掲載相談</a>
       </nav>
       <p class="copyright">&copy; Voluntell</p>

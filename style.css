@@ -437,3 +437,19 @@ a.sponsor-banner-link:focus-visible {
 
 .complete-links { display: grid; gap: 8px; text-align: center; }
 .link-plain { padding: 12px; color: var(--text-sub); font-size: 14px; text-decoration: underline; }
+
+/* ==========================================
+   プライバシーポリシー（privacy.html）用の設定
+   ========================================== */
+.policy-page { padding-top: 16px; padding-bottom: 40px; }
+.policy-body h2 { font-size: 18px; line-height: 1.5; margin: 28px 0 10px; color: var(--blue-dark); }
+.policy-body h2:first-of-type { margin-top: 8px; }
+.policy-body h3 { font-size: 15px; line-height: 1.5; margin: 16px 0 6px; }
+.policy-body p { margin-bottom: 10px; line-height: 1.8; }
+.policy-body ul { margin: 0 0 10px; padding-left: 1.4em; list-style: disc; }
+.policy-body li { margin-bottom: 4px; line-height: 1.7; }
+
+@media (min-width: 768px) {
+  .policy-body h2 { font-size: 20px; }
+  .policy-body h3 { font-size: 16px; }
+}
