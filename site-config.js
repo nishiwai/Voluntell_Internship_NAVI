@@ -8,7 +8,7 @@
 //   「URLはまだ設定されていません」と表示されます。
 // ==========================================================
 
-const LINE_URL = "";
+const LINE_URL = "https://lin.ee/ow5GKKn";
 
 // Set the student-only Apps Script web app URL after deploying it. Leave blank until then.
 const APPLY_API_URL = "";
