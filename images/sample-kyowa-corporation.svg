@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="住まい・まちづくりのイメージ（仮の画像）">
+  <title>住まい・まちづくりのイメージ（仮の画像）（Voluntellが用意した仮の絵です）</title>
+  <rect width="640" height="360" fill="#e0f2fe"/>
+  <rect x="0" y="290" width="640" height="70" fill="#86c9a0"/>
+  <rect x="380" y="60" width="130" height="236" fill="#93c5fd" stroke="#2563eb" stroke-width="5"/>
+  <g fill="#eff6ff"><rect x="402" y="84" width="30" height="26"/><rect x="458" y="84" width="30" height="26"/><rect x="402" y="134" width="30" height="26"/><rect x="458" y="134" width="30" height="26"/><rect x="402" y="184" width="30" height="26"/><rect x="458" y="184" width="30" height="26"/></g>
+  <rect x="535" y="130" width="90" height="166" fill="#bfdbfe" stroke="#2563eb" stroke-width="5"/>
+  <rect x="50" y="150" width="270" height="146" fill="#fff7ed" stroke="#c2410c" stroke-width="6"/>
+  <path d="M30 156 L185 50 L340 156 Z" fill="#ef6c3b" stroke="#c2410c" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="150" y="210" width="68" height="86" rx="6" fill="#92400e"/>
+  <g fill="#bfdbfe" stroke="#c2410c" stroke-width="4"><rect x="74" y="190" width="56" height="52"/><rect x="240" y="190" width="56" height="52"/></g>
+  <circle cx="352" cy="262" r="22" fill="#4ade80"/><rect x="348" y="272" width="8" height="24" fill="#92400e"/>
+</svg>

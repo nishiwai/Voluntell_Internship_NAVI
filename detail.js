@@ -32,10 +32,19 @@ function block(title, chip, body) {
   return '<section class="detail-block"><h2>' + esc(title) + (chip || "") + "</h2>" + body + "</section>";
 }
 
+// 申込みボタン。受付中のときだけ表示し、それ以外は受付できない理由を表示します
+function applyAction(state, applyUrl, extraClass) {
+  if (state.accepting) {
+    return '<a href="' + esc(applyUrl) + '" class="btn btn-primary btn-large btn-block ' + extraClass + '">このインターンに申し込む</a>';
+  }
+  return '<p class="apply-unavailable" data-state="' + state.key + '">' + esc(state.notice) + "</p>";
+}
+
 function renderDetail(job) {
   const m = job.model;
   const o = job.official;
   const isMonitor = job.listingType === "monitor";
+  const state = jobState(job);
   const applyUrl = "apply.html?job=" + encodeURIComponent(job.id);
 
   const logo = job.logoUrl
@@ -46,7 +55,8 @@ function renderDetail(job) {
   // 1. 会社名・募集タイトル・基本情報・応募ボタン
   let html =
     '<section class="detail-top">' +
-      (isMonitor ? '<p class="badge-monitor">モニター掲載（サンプル）</p>' : "") +
+      jobImage(job) +
+      '<p class="' + state.css + '" data-state="' + state.key + '">' + esc(state.label) + "</p>" +
       '<div class="job-head"><div class="logo">' + logo + '</div><p class="company">' + esc(job.company) + "</p></div>" +
       '<h1 class="detail-title">' + esc(job.title) + "</h1>" +
       '<div class="tags">' + tags + "</div>" +
@@ -60,7 +70,7 @@ function renderDetail(job) {
           ["応募締切", deadlineText(job)]
         ]).replace("<dd>調整中</dd>", '<dd class="deadline">調整中</dd>') +
       "</dl>" +
-      '<a href="' + esc(applyUrl) + '" class="btn btn-primary btn-large btn-block detail-apply-top">このインターンに申し込む</a>' +
+      applyAction(state, applyUrl, "detail-apply-top") +
     "</section>";
 
   // 2. このインターンで体験できること
@@ -91,7 +101,7 @@ function renderDetail(job) {
         ["実施場所", r.place],
         ["実施形式", r.style],
         ["募集人数", r.capacity],
-        ["応募締切", r.deadline],
+        ["応募締切", deadlineText(job)],
         ["服装・持ち物", r.belongings],
         ["交通費・報酬", r.pay]
       ]) +
@@ -139,8 +149,8 @@ function renderDetail(job) {
   html += block(
     "このインターンに申し込む",
     "",
-    "<p>ご不明な点があっても、まずは気軽にお申し込みください。</p>" +
-    '<a href="' + esc(applyUrl) + '" class="btn btn-primary btn-large btn-block">このインターンに申し込む</a>'
+    (state.accepting ? "<p>ご不明な点があっても、まずは気軽にお申し込みください。</p>" : "") +
+    applyAction(state, applyUrl, "")
   );
 
   return html;
@@ -154,7 +164,7 @@ if (detailJob) {
   root.innerHTML = renderDetail(detailJob);
   document.title = detailJob.title + "｜" + detailJob.company + "｜Voluntell インターンシップNAVI";
   document.getElementById("apply-bar-link").href = "apply.html?job=" + encodeURIComponent(detailJob.id);
-  document.getElementById("apply-bar").hidden = false;
+  document.getElementById("apply-bar").hidden = !jobState(detailJob).accepting;
 } else {
   root.innerHTML =
     '<section class="detail-block"><h1 class="detail-title">募集が見つかりません</h1>' +

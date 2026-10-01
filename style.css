@@ -101,15 +101,25 @@ ul, ol { list-style: none; }
 }
 
 /* ---------- 3. 募集カード（スマホは1列） ---------- */
-.card-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+/* align-items: start … 隣のカードに合わせて高さを伸ばさない（画像の有無で不自然な空白が出ないように） */
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
 
+/* 1社ぶんを、薄いグレーの枠の中に（画像・企業名・募集内容・詳細ボタン）まとめる */
 .job-card {
   display: flex; flex-direction: column;
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e3e8;
+  border-radius: 12px;
+  padding: 20px;
+}
+.job-card > .job-image { margin: 0 0 14px; }
+
+/* イメージ画像：一覧・詳細で共通。「イメージ画像」の表示を画像の左上に重ねる */
+.job-image { position: relative; margin: 0 0 16px; border-radius: 8px; overflow: hidden; background: var(--blue-light); }
+.job-image img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.image-label {
+  position: absolute; left: 8px; top: 8px; padding: 2px 10px; border-radius: 999px;
+  background: rgba(17, 24, 39, 0.72); color: #fff; font-size: 12px; font-weight: bold; line-height: 1.6;
 }
 .job-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .logo {
@@ -336,9 +346,15 @@ a.sponsor-banner-link:focus-visible {
 }
 
 /* モニター掲載（サンプル）の表示：公式情報とモデル内容を見分けるための印 */
-.badge-monitor {
+.badge-monitor, .badge-open, .badge-wait, .badge-closed {
   display: inline-block; margin-bottom: 8px; padding: 2px 10px; border-radius: 999px;
   font-size: 12px; font-weight: bold; color: #8a5a00; background: #fff3cd;
+}
+.badge-open { color: #0b6b3a; background: #e3f6ea; }
+.badge-closed { color: #4b5563; background: #e5e7eb; }
+.apply-unavailable {
+  margin-top: 16px; padding: 12px 14px; border-radius: 12px; background: #f3f4f6;
+  color: #374151; font-size: 14px; font-weight: bold; line-height: 1.6; text-align: center;
 }
 .notice-monitor {
   margin: 12px 0; padding: 10px 14px; border: 1px solid #f3d27a; border-radius: 12px;
@@ -453,4 +469,47 @@ a.sponsor-banner-link:focus-visible {
 @media (min-width: 768px) {
   .policy-body h2 { font-size: 20px; }
   .policy-body h3 { font-size: 16px; }
+}
+
+/* ==========================================
+   募集一覧ページ（list.html）だけ：カードをコンパクトにする
+   （トップ・詳細は変えない。一覧のカードだけ .card-grid-single の中にある）
+   画像は16:9のまま小さくし、PCは「左に画像／右に情報」、スマホは「上段に画像＋企業名」にする。
+   ========================================== */
+.card-grid-single { gap: 14px; }
+.card-grid-single .job-card {
+  display: grid; grid-template-columns: 112px 1fr; column-gap: 12px; align-items: start;
+  padding: 14px;
+  /* 枠線で区切りを明確にする（影は付けない）。一覧だけに適用 */
+  background: var(--white); border: 2px solid #aab4c0; box-shadow: none;
+}
+.card-grid-single .job-card > * { grid-column: 1 / -1; }
+.card-grid-single .job-card > .job-image { grid-column: 1; grid-row: 1 / span 2; margin: 0; border-radius: 6px; }
+.card-grid-single .job-card > .job-image img { aspect-ratio: 16 / 9; }
+.card-grid-single .job-card .image-label { left: 4px; top: 4px; padding: 0 6px; font-size: 11px; line-height: 1.5; }
+.card-grid-single .job-card > [data-state] { grid-column: 2; grid-row: 1; align-self: end; justify-self: start; margin: 0 0 6px; }
+.card-grid-single .job-card > .job-head { grid-column: 2; grid-row: 2; align-self: start; margin-bottom: 0; }
+.card-grid-single .job-card > .job-title { margin: 10px 0 8px; font-size: 17px; }
+.card-grid-single .job-card > .tags { margin-bottom: 8px; }
+.card-grid-single .job-card > .meta { margin-bottom: 8px; }
+.card-grid-single .job-card > .job-info { margin-bottom: 12px; padding-top: 8px; }
+.card-grid-single .job-card > .btn { min-height: 48px; padding-top: 10px; padding-bottom: 10px; }
+/* 画像のない募集は、全幅で並べる */
+.card-grid-single .job-card:not(:has(.job-image)) > * { grid-column: 1 / -1; grid-row: auto; }
+
+@media (min-width: 768px) {
+  .card-grid-single { gap: 16px; }
+  .card-grid-single .job-card { grid-template-columns: 180px 1fr; column-gap: 20px; padding: 16px 20px; }
+  .card-grid-single .job-card > * { grid-column: 2; grid-row: auto; }
+  .card-grid-single .job-card > .job-image { grid-column: 1; grid-row: 1 / span 8; }
+  .card-grid-single .job-card .image-label { left: 6px; top: 6px; padding: 0 8px; font-size: 11px; }
+  .card-grid-single .job-card > [data-state] { align-self: auto; margin-bottom: 6px; }
+  .card-grid-single .job-card > .job-head { margin-bottom: 6px; }
+  .card-grid-single .job-card > .job-title { margin: 0 0 8px; font-size: 18px; }
+  /* 期間と応募締切は1行に並べる */
+  .card-grid-single .job-card > .job-info { display: flex; flex-wrap: wrap; gap: 0 24px; margin-bottom: 12px; padding-top: 8px; }
+  .card-grid-single .job-card > .job-info div { padding: 2px 0; }
+  .card-grid-single .job-card > .job-info dt { width: auto; }
+  .card-grid-single .job-card > .btn { width: auto; min-height: 44px; justify-self: start; padding: 8px 36px; }
+  .card-grid-single .job-card:not(:has(.job-image)) > * { grid-column: 1 / -1; }
 }

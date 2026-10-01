@@ -24,6 +24,9 @@
 //   company      企業名
 //   logoText     ロゴの代わりに表示する1文字（企業ロゴは、使用の許可を得るまで使いません）
 //   logoUrl      ロゴ画像のファイル名（無ければ "" のままでOK）
+//   imageUrl     イメージ画像のファイル名（無ければ項目ごと書かなくてOK）。一覧と詳細で同じ画像を使い、
+//                「イメージ画像」と表示します。企業から使用許可を得た写真に差し替えたら、表示は「イメージ画像」のままでよいか見直してください
+//   imageAlt     イメージ画像の説明文（画像が見えない人向けの読み上げ用）
 //   title        募集タイトル                      ※モデル
 //   industry     業種                              ※今は表示しません。将来の絞り込み用
 //   jobCategory  仕事・体験カテゴリー              ※今は表示しません。将来の絞り込み用
@@ -33,7 +36,20 @@
 //   period       インターン期間                    ※モデル
 //   publishedAt  初回公開日（この日付で並びます。編集しても変えないでください）
 //   updatedAt    更新日
+//   status       受付の状態（正式募集 "official" だけに書きます。モニター掲載は常に受付停止なので不要）
+//                  "open"   … 受付中（site-config.js の APPLY_API_URL が設定済みのときだけ、実際に受付）
+//                  "paused" … 一時停止（一覧・詳細に「受付一時停止中」と出て、申込みできません）
+//                  "closed" … 募集終了
+//                  書き忘れや書き間違いは、安全のため一時停止として扱います。
 //   deadline     応募締切（決まっていない間は ""。画面には「調整中」と出ます）
+//                  締切日の翌日になると、status が "open" のままでも自動で「募集終了」になります。
+//                  締切の表示は、一覧・詳細・募集要項のすべてでこの値だけを使います（別に書かないでください）。
+//
+//   ※ 画面の表示は、サイト側の status・締切日で決まります。申込みを実際に受け付けるかどうかは、
+//      サーバー側の受付設定でも別に判断します。status・締切日を変えたら、運営用の手順書に従って、
+//      サーバー側の受付設定も同じ内容に更新してください（更新漏れがあると、画面と受付が食い違います）。
+//      運営用の照合ツールが読めるよう、募集は「const JOBS = [ ... ]」の中に、この書式のまま書いてください
+//      （JOBS.push(...) などの書き方は使わないでください）。
 //   detailUrl    詳細ページ（detail.html?job=募集ID）
 //   officialUrl  企業の公式サイト
 //
@@ -54,6 +70,8 @@ const JOBS = [
     company: "タジマ工業株式会社",
     logoText: "タ",
     logoUrl: "",
+    imageUrl: "images/sample-tajima-kogyo.svg",
+    imageAlt: "刺繍のイメージ（仮の画像）",
     title: "刺繍機のものづくりと、世界への届け方を知る職業体験",
     industry: "産業機械・メーカー",
     jobCategory: "ものづくり・営業・デザイン",
@@ -103,7 +121,6 @@ const JOBS = [
         place: "愛知県 春日井市（実施場所は、正式掲載時に決定）",
         style: "現地",
         capacity: "調整中",
-        deadline: "調整中",
         belongings: "調整中（服装・持ち物は、決まりしだいご案内します）",
         pay: "調整中（交通費・報酬の有無は、正式掲載時に決定）"
       }
@@ -119,6 +136,8 @@ const JOBS = [
     company: "中日クラフト株式会社",
     logoText: "中",
     logoUrl: "",
+    imageUrl: "images/sample-chunichi-craft.svg",
+    imageAlt: "金属加工（めっき・レーザ・金型）のイメージ（仮の画像）",
     title: "めっき・レーザ・金型。金属のものづくりを知る職業体験",
     industry: "金属加工・表面処理",
     jobCategory: "ものづくり・技術",
@@ -166,7 +185,6 @@ const JOBS = [
         place: "愛知県 春日井市（実施場所は、正式掲載時に決定）",
         style: "現地",
         capacity: "調整中",
-        deadline: "調整中",
         belongings: "調整中",
         pay: "調整中"
       }
@@ -182,6 +200,8 @@ const JOBS = [
     company: "株式会社丸菱製作所",
     logoText: "丸",
     logoUrl: "",
+    imageUrl: "images/sample-marubishi-seisakusho.svg",
+    imageAlt: "大型構造物の製缶・機械加工のイメージ（仮の画像）",
     title: "大型構造物の製缶・機械加工の現場を体験する職業体験",
     industry: "金属加工・機械製造",
     jobCategory: "ものづくり・技術",
@@ -228,7 +248,6 @@ const JOBS = [
         place: "愛知県 春日井市（実施場所は、正式掲載時に決定）",
         style: "現地",
         capacity: "調整中",
-        deadline: "調整中",
         belongings: "調整中",
         pay: "調整中"
       }
@@ -244,6 +263,8 @@ const JOBS = [
     company: "株式会社協和コーポレーション",
     logoText: "協",
     logoUrl: "",
+    imageUrl: "images/sample-kyowa-corporation.svg",
+    imageAlt: "住まい・まちづくりのイメージ（仮の画像）",
     title: "住まい・まちづくりの仕事を知る職業体験",
     industry: "不動産・住宅",
     jobCategory: "住まい・不動産・まちづくり",
@@ -291,7 +312,6 @@ const JOBS = [
         place: "愛知県 春日井市（実施場所は、正式掲載時に決定）",
         style: "現地",
         capacity: "調整中",
-        deadline: "調整中",
         belongings: "調整中",
         pay: "調整中"
       }
@@ -307,6 +327,8 @@ const JOBS = [
     company: "ブランシェグループ",
     logoText: "ブ",
     logoUrl: "",
+    imageUrl: "images/sample-branche-group.svg",
+    imageAlt: "美容・飲食・スクールのイメージ（仮の画像）",
     title: "美容・飲食・スクール。暮らしをデザインする仕事の職業体験",
     industry: "美容・飲食・教育",
     jobCategory: "サービス・美容・接客",
@@ -354,7 +376,6 @@ const JOBS = [
         place: "愛知県 春日井市（実施場所は、正式掲載時に決定）",
         style: "現地",
         capacity: "調整中",
-        deadline: "調整中",
         belongings: "調整中",
         pay: "調整中"
       }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="大型構造物の製缶・機械加工のイメージ（仮の画像）">
+  <title>大型構造物の製缶・機械加工のイメージ（仮の画像）（Voluntellが用意した仮の絵です）</title>
+  <rect width="640" height="360" fill="#fff1d6"/>
+  <rect x="0" y="300" width="640" height="60" fill="#9ca3af"/>
+  <g fill="#f59e0b" stroke="#b45309" stroke-width="5">
+    <rect x="70" y="40" width="64" height="262"/><rect x="330" y="40" width="64" height="262"/>
+    <rect x="40" y="40" width="390" height="46"/><rect x="40" y="226" width="390" height="40"/>
+  </g>
+  <g stroke="#b45309" stroke-width="6" fill="none"><path d="M134 86 L330 226"/><path d="M330 86 L134 226"/></g>
+  <g fill="#6b7280"><circle cx="102" cy="64" r="7"/><circle cx="362" cy="64" r="7"/><circle cx="102" cy="246" r="7"/><circle cx="362" cy="246" r="7"/></g>
+  <path d="M560 30 V120 M560 30 H470" stroke="#374151" stroke-width="8" stroke-linecap="round"/>
+  <path d="M470 30 V150" stroke="#374151" stroke-width="5"/>
+  <rect x="440" y="150" width="60" height="40" rx="6" fill="#ef4444"/>
+  <path d="M560 120 L470 232" stroke="#374151" stroke-width="10" stroke-linecap="round"/>
+  <g stroke="#fde047" stroke-width="7" stroke-linecap="round">
+    <path d="M470 240 L430 215"/><path d="M470 240 L520 250"/><path d="M470 240 L440 280"/><path d="M470 240 L500 200"/>
+  </g>
+</svg>

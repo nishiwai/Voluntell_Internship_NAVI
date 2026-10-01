@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="金属加工（めっき・レーザ・金型）のイメージ（仮の画像）">
+  <title>金属加工（めっき・レーザ・金型）のイメージ（仮の画像）（Voluntellが用意した仮の絵です）</title>
+  <rect width="640" height="360" fill="#e6f4ee"/>
+  <g transform="translate(220 190)">
+    <g fill="#9ca3af">
+      <rect x="-22" y="-166" width="44" height="52" rx="8"/><rect x="-22" y="114" width="44" height="52" rx="8"/>
+      <rect x="-166" y="-22" width="52" height="44" rx="8"/><rect x="114" y="-22" width="52" height="44" rx="8"/>
+      <rect x="-22" y="-166" width="44" height="52" rx="8" transform="rotate(45)"/><rect x="-22" y="114" width="44" height="52" rx="8" transform="rotate(45)"/>
+      <rect x="-166" y="-22" width="52" height="44" rx="8" transform="rotate(45)"/><rect x="114" y="-22" width="52" height="44" rx="8" transform="rotate(45)"/>
+    </g>
+    <circle r="132" fill="#9ca3af"/><circle r="104" fill="#e5e7eb"/><circle r="40" fill="#9ca3af"/><circle r="18" fill="#f3f4f6"/>
+  </g>
+  <path d="M470 20 L400 150" stroke="#ef4444" stroke-width="10" stroke-linecap="round"/>
+  <g stroke="#f59e0b" stroke-width="8" stroke-linecap="round">
+    <path d="M400 160 L360 140"/><path d="M400 160 L450 175"/><path d="M400 160 L372 200"/><path d="M400 160 L430 120"/><path d="M400 160 L400 215"/>
+  </g>
+  <rect x="440" y="226" width="170" height="86" rx="12" fill="#bfdbfe" stroke="#2563eb" stroke-width="5"/>
+  <path d="M440 256 q21 -14 42 0 t42 0 t42 0 t42 0" fill="none" stroke="#2563eb" stroke-width="5"/>
+</svg>

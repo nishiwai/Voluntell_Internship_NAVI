@@ -7,7 +7,7 @@ const CONSENT_VERSION = "student-application-v1";
 
 const params = new URLSearchParams(location.search);
 const jobId = params.get("job");
-const localHosts = ["localhost", "127.0.0.1", "[::1]"];
+const localHosts = LOCAL_HOSTS;
 const testMode = location.protocol === "http:" && localHosts.includes(location.hostname) &&
   jobId === "__TEST__" && params.get("test") === "1";
 const testJob = {
@@ -28,14 +28,27 @@ try {
 } catch (error) {
   applicationEndpoint = null;
 }
-const secureRemoteEndpoint = applicationEndpoint && applicationEndpoint.protocol === "https:" &&
-  !localHosts.includes(applicationEndpoint.hostname);
+const secureRemoteEndpoint = applicationEndpoint && isSecureRemoteUrl(applicationEndpoint);
 const localTestEndpoint = testMode && applicationEndpoint && localHosts.includes(applicationEndpoint.hostname);
 const applicationAvailable = Boolean(secureRemoteEndpoint || localTestEndpoint);
 let sending = false;
 
 // 送信先（Apps Script）の応答を待つ時間。保存後の応答が遅れることがあるため長めにしている
 const REQUEST_TIMEOUT_MS = 45000;
+
+// 問い合わせ先（apply.html の個人情報の取扱いに載せているものと同じ）
+const CONTACT_EMAIL = "ru-to.3@nifty.ne.jp";
+
+// 送信先（Apps Script）が申込を受け付けなかったときの、学生向けの案内。
+// 受付状態は送信先が判断するので、画面の表示と食い違ったときもここで案内する。
+// 設定の不具合（JOB_SETTINGS_INVALID）は、内容を画面に出さず、受付できないことと問い合わせ先だけを案内する。
+const REJECTION_MESSAGES = {
+  JOB_PAUSED: "この募集は現在、受付を一時停止しています。受付を再開するまで、お申し込みいただけません。",
+  JOB_CLOSED: "この募集は終了したため、お申し込みいただけません。",
+  JOB_DEADLINE_PASSED: "この募集は応募締切を過ぎたため、お申し込みいただけません。",
+  APPLICATION_NOT_ENABLED: "この募集は現在、申込を受け付けていません。ご不明な点は、" + CONTACT_EMAIL + " までお問い合わせください。",
+  JOB_SETTINGS_INVALID: "現在、この募集の申込を受け付けられません。時間をおいてもう一度お試しいただくか、" + CONTACT_EMAIL + " までお問い合わせください。"
+};
 
 // 時間切れでも、受付が完了している場合がある。同じ画面で押し直せば、受付キーが同じなので二重には登録されない
 function showTimeoutError() {
@@ -58,21 +71,24 @@ if (testMode) {
     errorBox.textContent = "テスト送信先が設定されていません。site-config.js の APPLY_TEST_API_URL を設定してください。";
     errorBox.hidden = false;
   }
-} else if (job && job.listingType === "official") {
-  document.getElementById("apply-company").textContent = job.company;
-  document.getElementById("apply-title").textContent = job.title;
-  document.getElementById("apply-job").hidden = false;
-  if (applicationAvailable) {
+} else if (job) {
+  // 受付できるかどうかは、一覧・詳細と同じ jobState()（cards.js）で決める
+  const state = jobState(job);
+  if (state.key !== "sample") {
+    // 「サンプルのため受付停止」という固定の案内は、正式募集では出さない
+    document.querySelector(".proto-note").hidden = true;
+    document.getElementById("apply-company").textContent = job.company;
+    document.getElementById("apply-title").textContent = job.title;
+    document.getElementById("apply-job").hidden = false;
+  }
+  if (state.accepting && applicationAvailable) {
     applyForm.hidden = false;
   } else {
     const errorBox = document.getElementById("apply-error");
-    errorBox.textContent = "現在、学生申込の受付準備中です。受付開始後にあらためてお申し込みください。";
+    errorBox.textContent = state.notice;
+    errorBox.dataset.state = state.key;
     errorBox.hidden = false;
   }
-} else if (job) {
-  const errorBox = document.getElementById("apply-error");
-  errorBox.textContent = "この募集は掲載イメージのサンプルのため、現在は申込を受け付けていません。";
-  errorBox.hidden = false;
 } else {
   // 募集IDが無い・間違っているとき
   document.getElementById("apply-error").hidden = false;
@@ -113,7 +129,7 @@ categorySelect.addEventListener("change", function () {
 
 applyForm.addEventListener("submit", async function (event) {
   event.preventDefault(); // ここで止めて、下の処理で完了ページへ進む
-  if (!job || (!testMode && job.listingType !== "official") || sending) return;
+  if (!job || (!testMode && !jobState(job).accepting) || sending) return;
 
   const studentTypes = {
     "大学生": "university",
@@ -207,6 +223,11 @@ applyForm.addEventListener("submit", async function (event) {
       const errorCode = typeof result.errorCode === "string" && /^[A-Z0-9_]{1,40}$/.test(result.errorCode)
         ? result.errorCode
         : "SERVER_REJECTED";
+      if (Object.prototype.hasOwnProperty.call(REJECTION_MESSAGES, errorCode)) {
+        submitError.textContent = REJECTION_MESSAGES[errorCode];
+        submitError.hidden = false;
+        return;
+      }
       const description = typeof result.description === "string"
         ? result.description.slice(0, 300)
         : (typeof result.error === "string" ? result.error.slice(0, 300) : "送信先が申込を受け付けませんでした。");
