@@ -487,6 +487,8 @@ a.sponsor-banner-link:focus-visible {
 .card-grid-single .job-card > .job-image { grid-column: 1; grid-row: 1 / span 2; margin: 0; border-radius: 6px; }
 .card-grid-single .job-card > .job-image img { aspect-ratio: 16 / 9; }
 .card-grid-single .job-card .image-label { left: 4px; top: 4px; padding: 0 6px; font-size: 11px; line-height: 1.5; }
+/* 写真提供などの長めのラベル（imageCaption を書いた募集だけ）は、狭いサムネイルでも1行に収める */
+.card-grid-single .job-card .image-label-credit { padding: 0 5px; font-size: 9px; white-space: nowrap; }
 .card-grid-single .job-card > [data-state] { grid-column: 2; grid-row: 1; align-self: end; justify-self: start; margin: 0 0 6px; }
 .card-grid-single .job-card > .job-head { grid-column: 2; grid-row: 2; align-self: start; margin-bottom: 0; }
 .card-grid-single .job-card > .job-title { margin: 10px 0 8px; font-size: 17px; }
@@ -503,6 +505,7 @@ a.sponsor-banner-link:focus-visible {
   .card-grid-single .job-card > * { grid-column: 2; grid-row: auto; }
   .card-grid-single .job-card > .job-image { grid-column: 1; grid-row: 1 / span 8; }
   .card-grid-single .job-card .image-label { left: 6px; top: 6px; padding: 0 8px; font-size: 11px; }
+  .card-grid-single .job-card .image-label-credit { padding: 0 8px; font-size: 11px; }
   .card-grid-single .job-card > [data-state] { align-self: auto; margin-bottom: 6px; }
   .card-grid-single .job-card > .job-head { margin-bottom: 6px; }
   .card-grid-single .job-card > .job-title { margin: 0 0 8px; font-size: 18px; }

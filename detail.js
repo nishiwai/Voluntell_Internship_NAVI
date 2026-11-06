@@ -1,5 +1,5 @@
 // 募集詳細ページ：アドレスの ?job=募集ID から、jobs-data.js の募集を探して表示します
-// （例：detail.html?job=tajima-kogyo）
+// （例：detail.html?job=tajima-group-paid-intern）
 // どの企業でも同じ形（フォーマット）で表示されます。企業ごとの中身は jobs-data.js を書き換えます。
 
 // モニター掲載のときに表示する注意書き
@@ -111,7 +111,7 @@ function renderDetail(job) {
   // 6. 企業について（公式情報だけ）
   html += block(
     "企業について",
-    CHIP_OFFICIAL,
+    o.establishedSource ? "" : CHIP_OFFICIAL,
     '<dl class="company-info">' +
       rows([
         ["企業名", job.company],
@@ -120,7 +120,10 @@ function renderDetail(job) {
         ["設立", o.established]
       ]) +
     "</dl>" +
-    '<p class="note">出典：企業の公式サイト（' + esc(formatDate(o.checkedAt)) + " 確認）</p>"
+    (o.establishedSource
+      // 設立などの根拠が公式サイトと異なるときは、項目ごとの出典を分けて示す
+      ? '<p class="note">出典：所在地・事業内容は企業の公式サイト（' + esc(formatDate(o.checkedAt)) + " 確認）、設立は" + esc(o.establishedSource) + "</p>"
+      : '<p class="note">出典：企業の公式サイト（' + esc(formatDate(o.checkedAt)) + " 確認）</p>")
   );
 
   // 7. 企業公式サイトへのリンク

@@ -16,9 +16,9 @@ function formatDate(text) {
   return p[0] + "年" + Number(p[1]) + "月" + Number(p[2]) + "日";
 }
 
-// 応募締切の表示（決まっていない間は「調整中」）
+// 応募締切の表示（決まっていない間は「調整中」。deadlineLabel があれば、その文字を表示）
 function deadlineText(job) {
-  return job.deadline ? formatDate(job.deadline) : "調整中";
+  return job.deadline ? formatDate(job.deadline) : (job.deadlineLabel || "調整中");
 }
 
 // ---- 募集の受付状態（一覧・詳細・申込みの表示と受付可否は、すべてここで決めます） ----
@@ -81,7 +81,7 @@ function jobImage(job) {
   if (!job.imageUrl) return "";
   return '<figure class="job-image">' +
     '<img src="' + esc(job.imageUrl) + '" alt="' + esc(job.imageAlt || "イメージ画像") + '" loading="lazy">' +
-    '<figcaption class="image-label">イメージ画像</figcaption>' +
+    '<figcaption class="image-label' + (job.imageCaption ? " image-label-credit" : "") + '">' + esc(job.imageCaption || "イメージ画像") + '</figcaption>' +
   "</figure>";
 }
 

@@ -96,7 +96,8 @@ if (testMode) {
 
 // 学生区分に合わせて、学年の選択肢を切り替える
 const GRADES = {
-  "大学生": ["1年", "2年", "3年", "4年", "修士1年", "修士2年", "その他"],
+  "大学生": ["1年", "2年", "3年", "4年", "5年", "6年", "その他"],
+  "大学院生": ["修士1年", "修士2年", "博士1年", "博士2年", "博士3年", "その他"],
   "短大生": ["1年", "2年"],
   "専門学生": ["1年", "2年", "3年", "4年"],
   "高校生": ["1年", "2年", "3年"]
@@ -133,6 +134,7 @@ applyForm.addEventListener("submit", async function (event) {
 
   const studentTypes = {
     "大学生": "university",
+    "大学院生": "graduate_school",
     "短大生": "junior_college",
     "専門学生": "vocational",
     "高校生": "high_school"
