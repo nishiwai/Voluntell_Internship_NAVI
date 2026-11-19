@@ -80,7 +80,7 @@ function jobState(job) {
 function jobImage(job) {
   if (!job.imageUrl) return "";
   return '<figure class="job-image">' +
-    '<img src="' + esc(job.imageUrl) + '" alt="' + esc(job.imageAlt || "イメージ画像") + '" loading="lazy">' +
+    '<img src="' + esc(job.imageUrl) + '" alt="' + esc(job.imageAlt || "イメージ画像") + '"' + (job.imagePosition ? ' style="object-position:' + esc(job.imagePosition) + '"' : "") + ' loading="lazy">' +
     '<figcaption class="image-label' + (job.imageCaption ? " image-label-credit" : "") + '">' + esc(job.imageCaption || "イメージ画像") + '</figcaption>' +
   "</figure>";
 }

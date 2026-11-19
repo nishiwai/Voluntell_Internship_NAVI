@@ -97,6 +97,7 @@ function renderDetail(job) {
     '<dl class="company-info">' +
       rows([
         ["対象", r.target],
+        ["高校生の参加条件", r.highSchool],
         ["期間", r.period],
         ["実施場所", r.place],
         ["実施形式", r.style],
@@ -111,7 +112,7 @@ function renderDetail(job) {
   // 6. 企業について（公式情報だけ）
   html += block(
     "企業について",
-    o.establishedSource ? "" : CHIP_OFFICIAL,
+    (o.establishedSource || o.sourceNote) ? "" : CHIP_OFFICIAL,
     '<dl class="company-info">' +
       rows([
         ["企業名", job.company],
@@ -120,11 +121,30 @@ function renderDetail(job) {
         ["設立", o.established]
       ]) +
     "</dl>" +
-    (o.establishedSource
+    (o.sourceNote
+      // 項目ごとに根拠が異なるときは、出典を自由な文で示す（「公式サイトで確認済み」とは書かない）
+      ? '<p class="note">出典：' + esc(o.sourceNote) + "</p>"
+      : o.establishedSource
       // 設立などの根拠が公式サイトと異なるときは、項目ごとの出典を分けて示す
       ? '<p class="note">出典：所在地・事業内容は企業の公式サイト（' + esc(formatDate(o.checkedAt)) + " 確認）、設立は" + esc(o.establishedSource) + "</p>"
       : '<p class="note">出典：企業の公式サイト（' + esc(formatDate(o.checkedAt)) + " 確認）</p>")
   );
+
+  // 6-2. お問い合わせ先と応募窓口（連絡先がある募集だけ。連絡先と応募の窓口は別です）
+  if (o.tel || o.email) {
+    html += block(
+      "お問い合わせ先と応募窓口",
+      "",
+      '<dl class="company-info">' +
+        rows([
+          ["応募窓口", "Voluntellの申込みフォーム（応募受付の開始後に、この募集ページからお申し込みいただきます）"],
+          ["お問い合わせ先（電話）", o.tel],
+          ["お問い合わせ先（メール）", o.email]
+        ]) +
+      "</dl>" +
+      '<p class="note">電話・メールは、募集内容についてのお問い合わせ先です。応募はVoluntellの申込みフォームから行います。</p>'
+    );
+  }
 
   // 7. 企業公式サイトへのリンク
   html += block(
