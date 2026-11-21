@@ -426,6 +426,7 @@ a.sponsor-banner-link:focus-visible {
 .consent-text p { margin: 0 0 4px; }
 .consent-text ul { margin: 0 0 4px; padding-left: 1.4em; list-style: disc; }
 .consent-guardian[hidden] { display: none; }
+.consent-conditions[hidden] { display: none; }
 .consent-check { display: flex; align-items: center; gap: 12px; min-height: var(--tap); font-weight: bold; cursor: pointer; }
 .consent-check input { flex-shrink: 0; width: 26px; height: 26px; accent-color: var(--blue); }
 

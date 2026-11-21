@@ -3,7 +3,8 @@
 //
 // 【いまの状態】
 //   掲載は正式募集2社です（タジマグループ：2026年11月6日公開／新名電機工業：2026年11月20日公開）。
-//   両社とも正式募集（listingType "official"）で、応募受付は停止中（status "paused"）です。
+//   両社とも正式募集（listingType "official"）です。新名電機工業は応募受付中（status "open"）、
+//   タジマグループは応募受付停止中（status "paused"）です。
 //   見本（listingType "monitor"）は、画面に「モニター掲載（サンプル）」と表示され、申込みを受け付けません。
 //   企業と内容が決まった募集は、新しい募集IDを付けて listingType を "official" にして追加します。
 //
@@ -57,6 +58,9 @@
 //   detailUrl    詳細ページ（detail.html?job=募集ID）
 //   officialUrl  企業の公式サイト
 //
+//   highSchoolConditions  高校生に追加条件（学校の同意・参加日の限定など）がある募集だけ true（任意。書かない募集は追加の確認なし）。
+//                true の募集では、申込フォームで高校生に追加の確認欄が出る。サーバー側の Code.gs（HIGH_SCHOOL_CONDITIONS_JOB_IDS）にも
+//                同じ募集IDを入れること（sync_jobs_config.py が照合する）
 //   official     公式サイトで確認できた企業情報（address / business / established / sourceUrl / checkedAt。
 //                設立などが公式サイトと別の根拠のときだけ establishedSource に根拠を書く。書くと「公式情報」の印を外し、出典を項目ごとに分けて表示）
 //   model        詳細ページに表示する、モデルの中身（lead / experiences / recommended / program /
@@ -70,8 +74,8 @@ const JOBS = [
   // 新名電機工業（正式募集。2026-11-20 公開）
   //    根拠：「企業向け_インターン募集内容確認シート」の回答と、先方（森様）からの2026-11-13の返信
   //    ・publishedAt は正式公開日（2026-11-20）。公開の許可は先方から取得済み
-  //    ・status "paused" ＝ 応募受付停止（受付開始の作業を終えるまで "paused" のまま）
-  //    ・応募情報の取扱いの了承・高校生の学校同意の確認方法・応募受付テストは未完了のため、受付は停止のまま
+  //    ・status "open" ＝ 応募受付中（2026-11-21 に受付を開始。サーバー側の受付設定 STUDENT_APPLICATIONS_JOBS も新名＝open、締切なし）
+  //    ・高校生が応募するときは、highSchoolConditions により、学校の同意と参加日の条件の追加確認がある（応募者の自己申告）
   //    ・ロゴ画像は未提供のため、頭文字の表示のまま
   //    ・写真は企業提供（images/ へ縮小して保存）。imagePosition で表示位置を調整
   //    ・会社の電話・メールは問い合わせ先。応募窓口はVoluntellの申込みフォーム
@@ -86,6 +90,7 @@ const JOBS = [
     imageAlt: "制御盤の部品を電動ドライバーで取り付ける、紺色の作業服の社員",
     imageCaption: "写真提供：新名電機工業",
     imagePosition: "50% 30%",
+    highSchoolConditions: true,
     title: "知識ゼロでも大丈夫、電気と制御を学ぶ体験型インターン",
     industry: "電気機器・制御盤",
     jobCategory: "制御盤製作・制御ソフト設計",
@@ -96,7 +101,7 @@ const JOBS = [
     period: "1日～5日で調整（希望内容に合わせて要相談）",
     publishedAt: "2026-11-20",
     updatedAt: "2026-11-20",
-    status: "paused",
+    status: "open",
     deadline: "",
     deadlineLabel: "なし",
     detailUrl: "detail.html?job=shinmei-denki-control-intern",

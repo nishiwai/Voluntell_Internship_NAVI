@@ -106,6 +106,11 @@ const categorySelect = document.getElementById("category");
 const gradeSelect = document.getElementById("grade");
 const guardianField = document.getElementById("guardian-field");
 const guardianCheck = document.getElementById("guardian");
+// 学校の同意・参加日の条件は、条件のある募集（jobs-data.js の highSchoolConditions）に応募する高校生だけに確認する
+const conditionsField = document.getElementById("conditions-field");
+const schoolConsentCheck = document.getElementById("school-consent");
+const attendanceCheck = document.getElementById("attendance-condition");
+const jobHasConditions = Boolean(job && job.highSchoolConditions === true);
 
 categorySelect.addEventListener("change", function () {
   // 高校生を選んだときだけ、保護者への確認欄を表示して必須にする（応募者の自己申告）
@@ -113,6 +118,15 @@ categorySelect.addEventListener("change", function () {
   guardianField.hidden = !isHighSchool;
   guardianCheck.required = isHighSchool;
   if (!isHighSchool) guardianCheck.checked = false;
+
+  const showConditions = isHighSchool && jobHasConditions;
+  conditionsField.hidden = !showConditions;
+  schoolConsentCheck.required = showConditions;
+  attendanceCheck.required = showConditions;
+  if (!showConditions) {
+    schoolConsentCheck.checked = false;
+    attendanceCheck.checked = false;
+  }
 
   const list = GRADES[categorySelect.value] || [];
   gradeSelect.innerHTML = "";
@@ -146,6 +160,12 @@ applyForm.addEventListener("submit", async function (event) {
     submitError.hidden = false;
     return;
   }
+  const conditionsRequired = isHighSchool && jobHasConditions;
+  if (conditionsRequired && !(schoolConsentCheck.checked && attendanceCheck.checked)) {
+    submitError.textContent = "この募集に高校生が応募するには、「在籍する学校の同意を得ています」と「授業を休まず、長期休暇中または自由登校の日に参加します」の両方にチェックを入れてください。";
+    submitError.hidden = false;
+    return;
+  }
   let requestKey;
   try {
     const storageKey = "navi-application-request:" + job.id;
@@ -176,7 +196,8 @@ applyForm.addEventListener("submit", async function (event) {
     reason: document.getElementById("message").value.trim(),
     consent: document.getElementById("consent").checked,
     consent_version: CONSENT_VERSION,
-    guardian_confirmed: isHighSchool && guardianCheck.checked
+    guardian_confirmed: isHighSchool && guardianCheck.checked,
+    high_school_conditions_confirmed: conditionsRequired && schoolConsentCheck.checked && attendanceCheck.checked
   };
   if (testMode) payload.testMode = true;
 

@@ -138,6 +138,18 @@
           <input type="checkbox" id="guardian" name="guardian">
           <span>保護者に応募を伝え、了承を得ています <span class="badge badge-req">必須</span></span>
         </label>
+        <!-- 高校生を選び、かつ募集に highSchoolConditions: true があるときだけ表示します（apply.js）。応募者の自己申告です -->
+        <div class="consent-conditions" id="conditions-field" hidden>
+          <p class="hint">この募集では、高校生の参加に次の条件があります。</p>
+          <label class="consent-check consent-guardian">
+            <input type="checkbox" id="school-consent" name="school-consent">
+            <span>在籍する学校の同意を得ています <span class="badge badge-req">必須</span></span>
+          </label>
+          <label class="consent-check consent-guardian">
+            <input type="checkbox" id="attendance-condition" name="attendance-condition">
+            <span>授業を休まず、長期休暇中または自由登校の日に参加します <span class="badge badge-req">必須</span></span>
+          </label>
+        </div>
         <p class="hint"><a href="privacy.html">プライバシーポリシー</a></p>
       </div>
 

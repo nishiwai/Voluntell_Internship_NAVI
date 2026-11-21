@@ -11,7 +11,7 @@
 const LINE_URL = "https://lin.ee/ow5GKKn";
 
 // Set the student-only Apps Script web app URL after deploying it. Leave blank until then.
-const APPLY_API_URL = "";
+const APPLY_API_URL = "https://script.google.com/macros/s/AKfycbwNHtVF3cnHF5eR68WVBETPq3jzRRk9SSzSpuHDGkAdq63IgMSmzeUJsHXwgQUOQSrvuA/exec";
 
 // Temporary end-to-end test deployment URL. Keep blank except during local fake-data tests.
 const APPLY_TEST_API_URL = "";
