@@ -177,7 +177,7 @@ const JOBS = [
     period: "基本5日間（9:00～17:00）。日数は相談可",
     publishedAt: "2026-11-06",
     updatedAt: "2026-10-27",
-    status: "paused",
+    status: "open",
     deadline: "",
     deadlineLabel: "なし",
     detailUrl: "detail.html?job=tajima-group-paid-intern",
